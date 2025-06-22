@@ -29,7 +29,6 @@ export const domainGenerationRequestSchema = z.object({
   productDescription: z.string().min(10, "Product description must be at least 10 characters").max(1000, "Product description too long"),
   tonePreference: z.enum(["Funny", "Trendy", "Minimalist", "Straightforward", "Edgy"]).optional(),
   stylePreference: z.enum(["Open to All", "One word", "Phrase", "Two Word Combo"]).optional(),
-  aiModel: z.enum(["Gemini AI", "DeepSeek R1"]).optional().default("Gemini AI"),
 });
 
 export interface DomainSuggestion {
