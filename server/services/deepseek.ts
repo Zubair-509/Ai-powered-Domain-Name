@@ -65,11 +65,22 @@ ${toneGuidance}${styleGuidance}
   }
 ]`;
 
+    const apiKey = process.env.DEEPSEEK_R1_API_KEY || process.env.DEEPSEEK_API_KEY;
+    
+    if (!apiKey) {
+      throw new Error("DeepSeek API key not configured");
+    }
+
+    // Validate API key format
+    if (!apiKey.startsWith('sk-')) {
+      throw new Error("DeepSeek API key must start with 'sk-'");
+    }
+
     const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN || process.env.DEEPSEEK_API_KEY || process.env.DEEPSEEK_R1_API}`
+        'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
         model: 'deepseek-reasoner',

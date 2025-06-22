@@ -102,14 +102,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }
         ];
 
-        console.log("Returning demo suggestions for AI model:", aiModel);
-        console.log("Demo suggestions count:", demoSuggestions.length);
-        console.log("First suggestion:", demoSuggestions[0]);
-        
         res.json({ 
           domains: demoSuggestions,
           demo: true,
-          message: `Demo suggestions provided for ${aiModel} - API temporarily unavailable`
+          message: aiModel === "DeepSeek R1" 
+            ? "DeepSeek R1 API key authentication failed. Please verify your API key at https://platform.deepseek.com/" 
+            : "Gemini API temporarily unavailable - showing demo suggestions",
+          apiKeyStatus: aiModel === "DeepSeek R1" ? "invalid" : "unavailable"
         });
         return;
       }
