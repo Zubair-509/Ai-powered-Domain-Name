@@ -2,7 +2,8 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { generateDomainSuggestions } from "./services/gemini";
-import { domainGenerationRequestSchema, type DomainSuggestion } from "@shared/schema";
+import { checkDomainWithAIAlternatives } from "./services/domainAvailability";
+import { domainGenerationRequestSchema, domainAvailabilityRequestSchema, type DomainSuggestion } from "@shared/schema";
 import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -96,6 +97,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(500).json({ 
         error: "Unable to generate domain suggestions right now. Please try again in a moment." 
+      });
+    }
+  });
+
+  // Domain availability check endpoint
+  app.post("/api/check-domain", async (req, res) => {
+    try {
+      const { domain } = domainAvailabilityRequestSchema.parse(req.body);
+      
+      const availabilityResult = await checkDomainWithAIAlternatives(domain);
+      
+      res.json(availabilityResult);
+    } catch (error) {
+      console.error("Error checking domain availability:", error);
+      
+      if (error instanceof ZodError) {
+        return res.status(400).json({ 
+          error: "Invalid request", 
+          details: error.errors 
+        });
+      }
+
+      res.status(500).json({ 
+        error: "Unable to check domain availability. Please try again." 
       });
     }
   });

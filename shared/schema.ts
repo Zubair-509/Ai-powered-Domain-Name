@@ -36,7 +36,13 @@ export interface DomainSuggestion {
   style: "Descriptive" | "Phrase-Based" | "Humorous";
   domain: string;
   rationale: string;
+  isAvailable?: boolean;
+  alternatives?: string[];
 }
+
+export const domainAvailabilityRequestSchema = z.object({
+  domain: z.string().min(1, "Domain name is required"),
+});
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;

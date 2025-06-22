@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Copy, Crown, Lightbulb, Quote, Smile, Wand2, Globe, RefreshCw, Shield, Star } from "lucide-react";
+import { Copy, Crown, Lightbulb, Quote, Smile, Wand2, Globe, RefreshCw, Shield, Star, CheckCircle, XCircle, ExternalLink } from "lucide-react";
 
 const frameworkIcons = {
   "Descriptive": Lightbulb,
@@ -29,6 +29,7 @@ const frameworkColors = {
 export default function Home() {
   const [domains, setDomains] = useState<DomainSuggestion[]>([]);
   const [isDemoMode, setIsDemoMode] = useState(false);
+  const [checkingDomains, setCheckingDomains] = useState<Set<string>>(new Set());
   const { toast } = useToast();
 
   const form = useForm({
@@ -96,6 +97,50 @@ export default function Home() {
     const formValues = form.getValues();
     if (formValues.productDescription) {
       generateMutation.mutate(formValues);
+    }
+  };
+
+  const checkDomainAvailability = async (domain: string, index: number) => {
+    setCheckingDomains(prev => new Set(prev.add(domain)));
+    
+    try {
+      const response = await apiRequest("POST", "/api/check-domain", { domain });
+      const result = await response.json();
+      
+      // Update the domain in the list with availability info
+      setDomains(prevDomains => 
+        prevDomains.map((d, i) => 
+          i === index 
+            ? { ...d, isAvailable: result.isAvailable, alternatives: result.alternatives }
+            : d
+        )
+      );
+      
+      if (!result.isAvailable) {
+        toast({
+          title: "Domain Unavailable",
+          description: `${domain} is taken. Check the alternatives below.`,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Domain Available!",
+          description: `${domain} appears to be available for registration.`,
+        });
+      }
+    } catch (error) {
+      console.error("Domain check error:", error);
+      toast({
+        title: "Check Failed",
+        description: "Unable to check domain availability. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setCheckingDomains(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(domain);
+        return newSet;
+      });
     }
   };
 
@@ -337,7 +382,21 @@ export default function Home() {
                         <Separator className="mb-4" />
                         
                         <div className="flex items-center justify-between">
-                          <span className="text-sm text-gray-500">Domain Suggestion</span>
+                          <div className="flex items-center space-x-2">
+                            <span className="text-sm text-gray-500">Domain Suggestion</span>
+                            {domain.isAvailable === true && (
+                              <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                                <CheckCircle className="w-3 h-3 mr-1" />
+                                Available
+                              </Badge>
+                            )}
+                            {domain.isAvailable === false && (
+                              <Badge variant="secondary" className="bg-red-100 text-red-800 border-red-200">
+                                <XCircle className="w-3 h-3 mr-1" />
+                                Taken
+                              </Badge>
+                            )}
+                          </div>
                           <div className="flex items-center space-x-2">
                             <Button
                               variant="ghost"
@@ -350,12 +409,46 @@ export default function Home() {
                             <Button
                               variant="ghost"
                               size="sm"
+                              onClick={() => checkDomainAvailability(domain.domain, index)}
+                              disabled={checkingDomains.has(domain.domain)}
                               className="text-gray-500 hover:text-gray-700"
                             >
-                              Check Availability
+                              {checkingDomains.has(domain.domain) ? (
+                                <>
+                                  <RefreshCw className="w-4 h-4 mr-1 animate-spin" />
+                                  Checking...
+                                </>
+                              ) : (
+                                <>
+                                  <ExternalLink className="w-4 h-4 mr-1" />
+                                  Check Availability
+                                </>
+                              )}
                             </Button>
                           </div>
                         </div>
+                        
+                        {/* Alternatives Section */}
+                        {domain.isAvailable === false && domain.alternatives && domain.alternatives.length > 0 && (
+                          <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <h5 className="text-sm font-semibold text-yellow-800 mb-2">Alternative Domains Available:</h5>
+                            <div className="grid grid-cols-2 gap-2">
+                              {domain.alternatives.map((alternative, altIndex) => (
+                                <div key={altIndex} className="flex items-center justify-between p-2 bg-white rounded border">
+                                  <span className="text-sm text-gray-700">{alternative}</span>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => copyToClipboard(alternative)}
+                                    className="text-xs text-primary hover:text-primary-dark"
+                                  >
+                                    <Copy className="w-3 h-3" />
+                                  </Button>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   );
