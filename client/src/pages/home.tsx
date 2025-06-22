@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Copy, Crown, Lightbulb, Quote, Smile, Wand2, Globe, RefreshCw, Shield, Star } from "lucide-react";
 
@@ -34,11 +35,13 @@ export default function Home() {
     resolver: zodResolver(domainGenerationRequestSchema),
     defaultValues: {
       productDescription: "",
+      tonePreference: undefined,
+      stylePreference: undefined,
     },
   });
 
   const generateMutation = useMutation({
-    mutationFn: async (data: { productDescription: string }) => {
+    mutationFn: async (data: { productDescription: string; tonePreference?: string; stylePreference?: string }) => {
       const response = await apiRequest("POST", "/api/generate-domains", data);
       return response.json();
     },
@@ -76,7 +79,7 @@ export default function Home() {
     },
   });
 
-  const onSubmit = (data: { productDescription: string }) => {
+  const onSubmit = (data: { productDescription: string; tonePreference?: string; stylePreference?: string }) => {
     generateMutation.mutate(data);
   };
 
@@ -90,9 +93,9 @@ export default function Home() {
   };
 
   const regenerate = () => {
-    const productDescription = form.getValues("productDescription");
-    if (productDescription) {
-      generateMutation.mutate({ productDescription });
+    const formValues = form.getValues();
+    if (formValues.productDescription) {
+      generateMutation.mutate(formValues);
     }
   };
 
@@ -173,6 +176,63 @@ export default function Home() {
                         </FormControl>
                         <FormDescription>
                           Be specific about your target audience and unique value proposition
+                        </FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* Tone Preferences Dropdown */}
+                  <FormField
+                    control={form.control}
+                    name="tonePreference"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Tone Preferences</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select tone preference (optional)" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="Funny">Funny</SelectItem>
+                            <SelectItem value="Trendy">Trendy</SelectItem>
+                            <SelectItem value="Minimalist">Minimalist</SelectItem>
+                            <SelectItem value="Straightforward">Straightforward</SelectItem>
+                            <SelectItem value="Edgy">Edgy</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormDescription>
+                          Choose the overall tone for your domain suggestions
+                        </FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* Style Preferences Dropdown */}
+                  <FormField
+                    control={form.control}
+                    name="stylePreference"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Style Preferences</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select style preference (optional)" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="Open to All">Open to All</SelectItem>
+                            <SelectItem value="One word">One word</SelectItem>
+                            <SelectItem value="Phrase">Phrase</SelectItem>
+                            <SelectItem value="Two Word Combo">Two Word Combo</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormDescription>
+                          Choose the naming style structure you prefer
                         </FormDescription>
                         <FormMessage />
                       </FormItem>

@@ -10,11 +10,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/generate-domains", async (req, res) => {
     try {
       // Validate request body
-      const { productDescription } = domainGenerationRequestSchema.parse(req.body);
+      const { productDescription, tonePreference, stylePreference } = domainGenerationRequestSchema.parse(req.body);
 
       // Try to generate domains using Gemini API
       try {
-        const domains = await generateDomainSuggestions(productDescription);
+        const domains = await generateDomainSuggestions(productDescription, tonePreference, stylePreference);
 
         // Store generation in memory (optional)
         await storage.createDomainGeneration({

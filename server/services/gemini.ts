@@ -5,14 +5,38 @@ const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY || "AIzaSyBLsUv0NUeG_d8XmkfdRi5NUsHFLcQal4Y" 
 });
 
-export async function generateDomainSuggestions(productDescription: string): Promise<DomainSuggestion[]> {
+export async function generateDomainSuggestions(productDescription: string, tonePreference?: string, stylePreference?: string): Promise<DomainSuggestion[]> {
   try {
+    // Build dynamic prompt based on user preferences
+    let toneGuidance = "";
+    if (tonePreference) {
+      const toneInstructions = {
+        "Funny": "Focus on humorous, witty, and meme-worthy names that make people smile.",
+        "Trendy": "Use current slang, pop culture references, and trending phrases.",
+        "Minimalist": "Keep names clean, simple, and elegant with minimal words.",
+        "Straightforward": "Create clear, direct names that immediately convey the purpose.",
+        "Edgy": "Use bold, provocative, or unconventional names that stand out."
+      };
+      toneGuidance = `\n**Tone Preference**: ${tonePreference} - ${toneInstructions[tonePreference as keyof typeof toneInstructions]}`;
+    }
+
+    let styleGuidance = "";
+    if (stylePreference && stylePreference !== "Open to All") {
+      const styleInstructions = {
+        "One word": "Generate single-word domain names only.",
+        "Phrase": "Create phrase-based names with multiple words that form complete thoughts.",
+        "Two Word Combo": "Combine exactly two words to create compound domain names."
+      };
+      styleGuidance = `\n**Style Preference**: ${stylePreference} - ${styleInstructions[stylePreference as keyof typeof styleInstructions]}`;
+    }
+
     const prompt = `You are a creative AI trained in branding and viral marketing. Your task is to generate unique and scroll-stopping domain name ideas based on proven naming frameworks used by successful millionaires like Greg Isenberg.
 
 Frameworks to follow:
 1. **Descriptive** – Clearly describes what the product does or what the user wants (e.g., "Somewhere I Would Live").
 2. **Phrase-Based** – Uses trending or culturally relevant phrases that evoke emotion or identity (e.g., "Boss Babe", "Main Character").
 3. **Humorous/Quirky** – Funny or meme-worthy names that are highly shareable (e.g., "You Probably Need a Haircut").
+${toneGuidance}${styleGuidance}
 
 Guidelines:
 - Generate 5–10 creative name options using a **mix** of the three styles.
