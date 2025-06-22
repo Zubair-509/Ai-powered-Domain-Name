@@ -69,7 +69,7 @@ ${toneGuidance}${styleGuidance}
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY || process.env.DEEPSEEK_R1_API}`
+        'Authorization': `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN || process.env.DEEPSEEK_API_KEY || process.env.DEEPSEEK_R1_API}`
       },
       body: JSON.stringify({
         model: 'deepseek-reasoner',
