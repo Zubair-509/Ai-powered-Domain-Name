@@ -30,6 +30,7 @@ export default function Home() {
   const [domains, setDomains] = useState<DomainSuggestion[]>([]);
   const [isDemoMode, setIsDemoMode] = useState(false);
   const [checkingDomains, setCheckingDomains] = useState<Set<string>>(new Set());
+  const [currentAiModel, setCurrentAiModel] = useState<string>("Gemini AI");
   const { toast } = useToast();
 
   const form = useForm({
@@ -38,17 +39,19 @@ export default function Home() {
       productDescription: "",
       tonePreference: undefined,
       stylePreference: undefined,
+      aiModel: "Gemini AI",
     },
   });
 
   const generateMutation = useMutation({
-    mutationFn: async (data: { productDescription: string; tonePreference?: string; stylePreference?: string }) => {
+    mutationFn: async (data: { productDescription: string; tonePreference?: string; stylePreference?: string; aiModel?: string }) => {
       const response = await apiRequest("POST", "/api/generate-domains", data);
       return response.json();
     },
     onSuccess: (data) => {
       setDomains(data.domains);
       setIsDemoMode(data.demo || false);
+      setCurrentAiModel(form.getValues("aiModel") || "Gemini AI");
       toast({
         title: "Domains Generated!",
         description: `Generated ${data.domains.length} premium domain suggestions.`,
@@ -80,7 +83,7 @@ export default function Home() {
     },
   });
 
-  const onSubmit = (data: { productDescription: string; tonePreference?: string; stylePreference?: string }) => {
+  const onSubmit = (data: { productDescription: string; tonePreference?: string; stylePreference?: string; aiModel?: string }) => {
     generateMutation.mutate(data);
   };
 
@@ -283,6 +286,32 @@ export default function Home() {
                       </FormItem>
                     )}
                   />
+
+                  {/* AI Model Selection Dropdown */}
+                  <FormField
+                    control={form.control}
+                    name="aiModel"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>AI Model</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select AI model" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="Gemini AI">Gemini AI</SelectItem>
+                            <SelectItem value="DeepSeek R1">DeepSeek R1 (Greg's Framework)</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormDescription>
+                          Choose the AI model for domain generation. DeepSeek R1 specifically follows Greg Isenberg's millionaire naming framework
+                        </FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                   
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2 text-sm text-gray-500">
@@ -329,12 +358,17 @@ export default function Home() {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Your Premium Domain Suggestions</h3>
-                  {isDemoMode && (
-                    <p className="text-sm text-amber-600 mt-1 flex items-center">
-                      <Shield className="w-4 h-4 mr-1" />
-                      Demo suggestions shown - API temporarily at capacity
-                    </p>
-                  )}
+                  <div className="flex items-center space-x-2 mt-1">
+                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 border-blue-200">
+                      {currentAiModel === "DeepSeek R1" ? "DeepSeek R1 (Greg's Framework)" : "Gemini AI"}
+                    </Badge>
+                    {isDemoMode && (
+                      <p className="text-sm text-amber-600 flex items-center">
+                        <Shield className="w-4 h-4 mr-1" />
+                        Demo suggestions shown - API temporarily at capacity
+                      </p>
+                    )}
+                  </div>
                 </div>
                 <Button
                   variant="outline"

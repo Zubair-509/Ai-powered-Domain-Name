@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { generateDomainSuggestions } from "./services/gemini";
+import { generateDomainSuggestionsWithDeepSeek } from "./services/deepseek";
 import { checkDomainWithAIAlternatives } from "./services/domainAvailability";
 import { domainGenerationRequestSchema, domainAvailabilityRequestSchema, type DomainSuggestion } from "@shared/schema";
 import { ZodError } from "zod";
@@ -11,11 +12,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/generate-domains", async (req, res) => {
     try {
       // Validate request body
-      const { productDescription, tonePreference, stylePreference } = domainGenerationRequestSchema.parse(req.body);
+      const { productDescription, tonePreference, stylePreference, aiModel } = domainGenerationRequestSchema.parse(req.body);
 
-      // Try to generate domains using Gemini API
+      // Try to generate domains using selected AI model
       try {
-        const domains = await generateDomainSuggestions(productDescription, tonePreference, stylePreference);
+        let domains: DomainSuggestion[];
+        
+        if (aiModel === "DeepSeek R1") {
+          domains = await generateDomainSuggestionsWithDeepSeek(productDescription, tonePreference, stylePreference);
+        } else {
+          domains = await generateDomainSuggestions(productDescription, tonePreference, stylePreference);
+        }
 
         // Store generation in memory (optional)
         await storage.createDomainGeneration({
@@ -28,8 +35,41 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } catch (apiError) {
         // If API fails due to quota or other issues, provide demo suggestions
         console.log("API failed, providing demo suggestions:", apiError);
+        console.log("Selected AI Model:", aiModel);
         
-        const demoSuggestions: DomainSuggestion[] = [
+        // Generate contextual demo suggestions based on the selected AI model and user input
+        const demoSuggestions: DomainSuggestion[] = aiModel === "DeepSeek R1" ? [
+          {
+            name: "You Probably Need a Freelancer",
+            style: "Humorous",
+            domain: "youneedfreelancer.com",
+            rationale: "Following Greg Isenberg's viral 'You Probably Need a Haircut' framework - instantly memorable and shareable with relatable humor."
+          },
+          {
+            name: "Skill Match",
+            style: "Descriptive", 
+            domain: "skillmatch.ai",
+            rationale: "Clearly describes the core function - matching skills. Passes the telephone test and immediately communicates value."
+          },
+          {
+            name: "Main Character Freelancer",
+            style: "Phrase-Based",
+            domain: "maincharacterfreelancer.co",
+            rationale: "Leverages the trending 'main character energy' phrase that resonates with freelancers wanting to own their narrative."
+          },
+          {
+            name: "Dream Team Dot",
+            style: "Phrase-Based",
+            domain: "dreamteam.xyz",
+            rationale: "Culturally loaded phrase for building the perfect team - feels aspirational and scroll-stopping."
+          },
+          {
+            name: "Hustle Buddy",
+            style: "Humorous",
+            domain: "hustlebuddy.com",
+            rationale: "Fun and supportive name that fits startup/freelancer culture - easy to remember and shareable."
+          }
+        ] : [
           {
             name: "ResumeGenie",
             style: "Descriptive",
@@ -62,10 +102,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }
         ];
 
+        console.log("Returning demo suggestions for AI model:", aiModel);
+        console.log("Demo suggestions count:", demoSuggestions.length);
+        console.log("First suggestion:", demoSuggestions[0]);
+        
         res.json({ 
           domains: demoSuggestions,
           demo: true,
-          message: "Demo suggestions provided - API temporarily unavailable"
+          message: `Demo suggestions provided for ${aiModel} - API temporarily unavailable`
         });
         return;
       }
