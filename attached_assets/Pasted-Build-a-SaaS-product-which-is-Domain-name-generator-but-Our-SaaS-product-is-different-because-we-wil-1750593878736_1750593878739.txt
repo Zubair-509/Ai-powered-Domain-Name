@@ -1,0 +1,58 @@
+Build a SaaS product which is Domain name generator but Our SaaS product is different because we will use the framework for writing business names used by Millionaires. I want you to use Gemini API for writing domain names and I want to brand my tool as "Domain name/Business names generator based on suggestions of millionaires". 
+
+I want you to give this input prompt to Gemini API to generate the business names.
+
+This is input prompt:
+"You are a creative AI trained in branding and viral marketing. Your task is to generate unique and scroll-stopping domain name ideas based on proven naming frameworks used by successful millionaires like Greg Isenberg.
+
+Frameworks to follow:
+1. **Descriptive** – Clearly describes what the product does or what the user wants (e.g., "Somewhere I Would Live").
+2. **Phrase-Based** – Uses trending or culturally relevant phrases that evoke emotion or identity (e.g., "Boss Babe", "Main Character").
+3. **Humorous/Quirky** – Funny or meme-worthy names that are highly shareable (e.g., "You Probably Need a Haircut").
+
+Guidelines:
+- Generate 5–10 creative name options using a **mix** of the three styles.
+- Keep the names short, memorable, and **pass the telephone test** (easy to say/spell).
+- Avoid generic or “tofu” names (bland, forgettable, hard to associate with a specific emotion).
+- Optionally suggest a **domain handle** (e.g., `.com`, `.ai`, `.co`, `.xyz`) next to each name if it fits the tone.
+- Highlight the **style/framework** used for each name (e.g., Descriptive, Phrase-Based, Humorous).
+
+Input: 
+[Insert product/service description here, e.g., “AI-powered resume builder for Gen Z”]
+
+Output format:
+- Name: [Generated Name]
+- Style: [Descriptive / Phrase-Based / Humorous]
+- Domain Suggestion: [example.ai]
+- Short Rationale: [Why this works based on the framework]"
+Example Input:
+
+  "product": "A platform that matches freelancers with startups based on personality and skills."
+
+Example Output:
+- Name: Skillmate
+  Style: Descriptive
+  Domain Suggestion: skillmate.ai
+  Short Rationale: Describes a helpful AI companion that connects skills with teams.
+
+- Name: Hustle Buddy
+  Style: Humorous
+  Domain Suggestion: hustlebuddy.com
+  Short Rationale: Feels fun and supportive, great for startup/freelancer culture.
+
+- Name: Dream Team Dot
+  Style: Phrase-Based
+  Domain Suggestion: dreamteam.xyz
+  Short Rationale: A culturally loaded phrase for building the perfect team — feels aspirational.
+
+- Name: Match & Go
+  Style: Descriptive
+  Domain Suggestion: matchandgo.com
+  Short Rationale: Easy to say and remember. Suggests fast matching with a clean user flow.
+
+- Name: You Probably Need a Freelancer
+  Style: Humorous
+  Domain Suggestion: needafreelancer.com
+  Short Rationale: Mimics viral naming style and humor used by Greg (e.g., “You Probably Need a Haircut”).
+
+This is My API key: AIzaSyBLsUv0NUeG_d8XmkfdRi5NUsHFLcQal4Y
