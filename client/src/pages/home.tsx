@@ -148,30 +148,30 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 fade-in">
+    <div className="min-h-screen bg-background fade-in">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b backdrop-blur-sm bg-white/90 sticky top-0 z-50 slide-up">
+      <header className="glass-card border-b border-white/10 sticky top-0 z-50 slide-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center float hover-glow transition-all duration-300">
-                  <Crown className="text-white w-5 h-5" />
+                <div className="w-10 h-10 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300">
+                  <Crown className="text-primary w-5 h-5" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900 hover:text-primary transition-colors duration-300">MillionaireDomains</h1>
-                  <p className="text-sm text-gray-500">Premium Domain Generator</p>
+                  <h1 className="text-xl font-bold hologram">MillionaireDomains</h1>
+                  <p className="text-sm text-muted-foreground">Neural Domain Architecture</p>
                 </div>
               </div>
             </div>
             <nav className="hidden sm:flex space-x-8">
-              <a href="#features" className="text-gray-700 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <a href="#features" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Features
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <Link href="/about" className="text-gray-700 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
-                About
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <Link href="/about" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                Neural Framework
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </Link>
             </nav>
           </div>
@@ -179,56 +179,68 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 to-purple-50 py-16 gradient-shift overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative cyber-grid py-20 lg:py-32 overflow-hidden">
+        {/* Neural Network Background */}
+        <div className="absolute inset-0 neural-network">
+          <div className="absolute top-0 left-0 w-full h-full plasma-bg"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full filter blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full filter blur-2xl animate-pulse delay-500"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6 pulse-gentle hover-lift transition-all duration-300">
-              <Star className="w-4 h-4 mr-2 bounce-gentle" />
-              Based on Millionaire Frameworks
+            <div className="inline-flex items-center px-6 py-3 glass-card rounded-full font-medium text-sm mb-8 pulse-gentle hover-lift transition-all duration-300 neon-border">
+              <Star className="w-4 h-4 mr-2 bounce-gentle text-primary" />
+              <span className="hologram">Neural Framework Architecture</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 slide-up">
-              Generate Domain Names Like a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600 gradient-shift">
-                Millionaire
+            <h2 className="text-5xl sm:text-7xl font-bold mb-8 slide-up">
+              <span className="hologram">Domain Genesis</span>
+              <br />
+              <span className="text-2xl sm:text-3xl font-normal text-muted-foreground block mt-2">
+                AI-Powered Brand Evolution
               </span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto slide-up" style={{ animationDelay: '0.2s' }}>
-              Discover powerful domain names using proven naming frameworks from successful entrepreneurs.
-              Get descriptive, phrase-based, and humorous suggestions powered by AI.
+            <p className="text-xl text-muted-foreground/80 mb-12 max-w-4xl mx-auto slide-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              Harness quantum-level naming algorithms powered by proven millionaire frameworks.
+              Transform concepts into digital empires through neural domain synthesis.
             </p>
           </div>
         </div>
       </section>
 
       {/* Main Generator Section */}
-      <section className="py-16">
+      <section className="py-20 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Generator Form */}
-          <Card className="mb-12 overflow-hidden hover-lift transition-all duration-500 scale-in shadow-lg hover:shadow-2xl">
-            <CardHeader className="bg-gradient-to-r from-primary to-primary-dark text-white gradient-shift">
-              <CardTitle className="text-2xl slide-in-left">AI Domain Generator</CardTitle>
-              <CardDescription className="text-primary-100 slide-in-right" style={{ animationDelay: '0.2s' }}>
-                Describe your product or service to get premium domain suggestions
-              </CardDescription>
+          <Card className="mb-12 overflow-hidden hover-lift transition-all duration-500 scale-in glass-card neon-border">
+            <CardHeader className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20"></div>
+              <div className="relative z-10">
+                <CardTitle className="text-3xl font-bold slide-in-left hologram">Neural Generator</CardTitle>
+                <CardDescription className="text-muted-foreground mt-2 slide-in-right" style={{ animationDelay: '0.2s' }}>
+                  Initialize your brand concept for quantum domain synthesis
+                </CardDescription>
+              </div>
             </CardHeader>
-            <CardContent className="p-8 slide-up" style={{ animationDelay: '0.3s' }}>
+            <CardContent className="p-8 slide-up bg-card/50" style={{ animationDelay: '0.3s' }}>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                   <FormField
                     control={form.control}
                     name="productDescription"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Product/Service Description</FormLabel>
+                        <FormLabel className="text-lg font-semibold text-foreground">Concept Input</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="e.g., AI-powered resume builder for Gen Z professionals"
-                            className="min-h-[120px] resize-none transition-all duration-300 focus:ring-2 focus:ring-primary/50 focus:scale-[1.02] hover:shadow-md"
+                            placeholder="Neural network-powered productivity platform for digital nomads..."
+                            className="min-h-[140px] resize-none transition-all duration-300 glass-card border-primary/30 focus:border-primary focus:ring-2 focus:ring-primary/20 hover:border-primary/50"
                             {...field}
                           />
                         </FormControl>
-                        <FormDescription>
-                          Be specific about your target audience and unique value proposition
+                        <FormDescription className="text-muted-foreground">
+                          Define your digital empire with precision - target matrix and value synthesis required
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
@@ -241,23 +253,23 @@ export default function Home() {
                     name="tonePreference"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Tone Preferences</FormLabel>
+                        <FormLabel className="text-lg font-semibold text-foreground">Neural Tone Matrix</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select tone preference (optional)" />
+                            <SelectTrigger className="glass-card border-primary/30 hover:border-primary/50 focus:border-primary transition-all duration-300">
+                              <SelectValue placeholder="Initialize tone parameters (optional)" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="Funny">Funny</SelectItem>
-                            <SelectItem value="Trendy">Trendy</SelectItem>
-                            <SelectItem value="Minimalist">Minimalist</SelectItem>
-                            <SelectItem value="Straightforward">Straightforward</SelectItem>
-                            <SelectItem value="Edgy">Edgy</SelectItem>
+                          <SelectContent className="glass-card border-primary/30">
+                            <SelectItem value="Funny">Quantum Humor</SelectItem>
+                            <SelectItem value="Trendy">Neo-Viral</SelectItem>
+                            <SelectItem value="Minimalist">Ultra-Clean</SelectItem>
+                            <SelectItem value="Straightforward">Direct-Access</SelectItem>
+                            <SelectItem value="Edgy">Cyber-Edge</SelectItem>
                           </SelectContent>
                         </Select>
-                        <FormDescription>
-                          Choose the overall tone for your domain suggestions
+                        <FormDescription className="text-muted-foreground">
+                          Configure brand personality neural pathways
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
@@ -270,22 +282,22 @@ export default function Home() {
                     name="stylePreference"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Style Preferences</FormLabel>
+                        <FormLabel className="text-lg font-semibold text-foreground">Architectural Pattern</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select style preference (optional)" />
+                            <SelectTrigger className="glass-card border-primary/30 hover:border-primary/50 focus:border-primary transition-all duration-300">
+                              <SelectValue placeholder="Select synthesis architecture (optional)" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="Open to All">Open to All</SelectItem>
-                            <SelectItem value="One word">One word</SelectItem>
-                            <SelectItem value="Phrase">Phrase</SelectItem>
-                            <SelectItem value="Two Word Combo">Two Word Combo</SelectItem>
+                          <SelectContent className="glass-card border-primary/30">
+                            <SelectItem value="Open to All">Omni-Architecture</SelectItem>
+                            <SelectItem value="One word">Mono-Core</SelectItem>
+                            <SelectItem value="Phrase">Multi-Phrase</SelectItem>
+                            <SelectItem value="Two Word Combo">Dual-Link</SelectItem>
                           </SelectContent>
                         </Select>
-                        <FormDescription>
-                          Choose the naming style structure you prefer
+                        <FormDescription className="text-muted-foreground">
+                          Define domain structural composition patterns
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
@@ -294,25 +306,25 @@ export default function Home() {
 
 
                   
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2 text-sm text-gray-500">
-                      <Shield className="w-4 h-4 text-green-500" />
-                      <span>Powered by Gemini AI</span>
+                  <div className="flex flex-col items-center space-y-6">
+                    <div className="flex items-center space-x-3 text-sm text-muted-foreground glass-card px-4 py-2 rounded-full neon-border">
+                      <Shield className="w-4 h-4 text-primary pulse-gentle" />
+                      <span className="hologram">Powered by Gemini Neural Network</span>
                     </div>
                     <Button
                       type="submit"
                       disabled={generateMutation.isPending}
-                      className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 gradient-shift hover-glow"
+                      className="bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary transition-all duration-500 hover:scale-105 neon-border px-12 py-4 text-lg font-semibold rounded-xl"
                     >
                       {generateMutation.isPending ? (
                         <>
-                          <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                          <span className="shimmer">Generating...</span>
+                          <RefreshCw className="w-5 h-5 mr-3 animate-spin" />
+                          <span className="hologram">Synthesizing...</span>
                         </>
                       ) : (
                         <>
-                          <Wand2 className="w-4 h-4 mr-2 bounce-gentle" />
-                          Generate Domains
+                          <Wand2 className="w-5 h-5 mr-3" />
+                          <span className="hologram">Initialize Genesis</span>
                         </>
                       )}
                     </Button>
@@ -322,36 +334,38 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          {/* Loading State */}
+          {/* Neural Processing State */}
           {generateMutation.isPending && (
-            <Card className="p-8 text-center scale-in hover-lift shadow-lg">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 pulse-gentle">
-                <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+            <Card className="p-12 text-center scale-in hover-lift glass-card neon-border">
+              <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-full mb-6 neon-border pulse-gentle">
+                <RefreshCw className="w-10 h-10 text-primary animate-spin" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 slide-up">Generating Your Domains...</h3>
-              <p className="text-gray-600 slide-up shimmer" style={{ animationDelay: '0.2s' }}>Our AI is crafting premium domain suggestions using millionaire frameworks</p>
-              <div className="mt-4 flex justify-center space-x-2">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+              <h3 className="text-2xl font-bold hologram mb-4 slide-up">Neural Synthesis Active</h3>
+              <p className="text-muted-foreground text-lg slide-up shimmer" style={{ animationDelay: '0.2s' }}>
+                Quantum algorithms processing millionaire framework matrices
+              </p>
+              <div className="mt-8 flex justify-center space-x-3">
+                <div className="w-3 h-3 bg-gradient-to-r from-primary to-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
+                <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                <div className="w-3 h-3 bg-gradient-to-r from-pink-500 to-primary rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
               </div>
             </Card>
           )}
 
-          {/* Results Section */}
+          {/* Neural Output Matrix */}
           {domains.length > 0 && !generateMutation.isPending && (
             <div className="slide-up">
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-12">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 slide-in-left">Your Premium Domain Suggestions</h3>
-                  <div className="flex items-center space-x-2 mt-1 slide-in-right" style={{ animationDelay: '0.2s' }}>
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 border-blue-200 hover-lift transition-all duration-300">
-                      Gemini AI (Greg's Framework)
+                  <h3 className="text-3xl font-bold hologram slide-in-left">Domain Genesis Complete</h3>
+                  <div className="flex items-center space-x-3 mt-2 slide-in-right" style={{ animationDelay: '0.2s' }}>
+                    <Badge variant="secondary" className="glass-card neon-border text-primary hover-lift transition-all duration-300">
+                      Neural Framework Synthesis
                     </Badge>
                     {isDemoMode && (
-                      <p className="text-sm text-amber-600 flex items-center">
-                        <Shield className="w-4 h-4 mr-1" />
-                        Demo suggestions shown - API temporarily at capacity
+                      <p className="text-sm text-muted-foreground flex items-center glass-card px-3 py-1 rounded-full">
+                        <Shield className="w-4 h-4 mr-2 text-primary" />
+                        Demo mode active - Full neural capacity pending
                       </p>
                     )}
                   </div>
@@ -359,7 +373,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   onClick={regenerate}
-                  className="border-primary text-primary hover:bg-primary hover:text-white"
+                  className="glass-card neon-border hover:bg-primary/20 transition-all duration-300 hover:scale-105"
                 >
                   <RefreshCw className="w-4 h-4 mr-2" />
                   Regenerate
@@ -483,37 +497,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 slide-up">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Why Choose MillionaireDomains?</h3>
-            <p className="text-xl text-gray-600" style={{ animationDelay: '0.2s' }}>Built on proven frameworks used by successful entrepreneurs</p>
+      {/* Neural Framework Matrix */}
+      <section id="features" className="py-20 relative cyber-grid">
+        <div className="absolute inset-0 neural-network opacity-30"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 slide-up">
+            <h3 className="text-4xl font-bold hologram mb-6">Neural Architecture Protocols</h3>
+            <p className="text-xl text-muted-foreground/80 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
+              Advanced millionaire framework matrices implemented through quantum-level brand synthesis algorithms
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center hover-lift transition-all duration-500 scale-in" style={{ animationDelay: '0.1s' }}>
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4 hover:scale-110 transition-all duration-300 pulse-gentle">
-                <Lightbulb className="w-8 h-8 text-blue-600" />
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card p-8 rounded-xl neon-border" style={{ animationDelay: '0.1s' }}>
+              <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-xl mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
+                <Lightbulb className="w-10 h-10 text-primary" />
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">Descriptive Names</h4>
-              <p className="text-gray-600">Clear, memorable names that instantly communicate your value proposition</p>
+              <h4 className="text-2xl font-bold hologram mb-4">Direct-Access Protocol</h4>
+              <p className="text-muted-foreground/80 leading-relaxed">Ultra-clear neural pathways that instantly transmit value matrices to target consciousness nodes</p>
             </div>
             
-            <div className="text-center hover-lift transition-all duration-500 scale-in" style={{ animationDelay: '0.3s' }}>
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4 hover:scale-110 transition-all duration-300 pulse-gentle">
-                <Quote className="w-8 h-8 text-purple-600" />
+            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card p-8 rounded-xl neon-border" style={{ animationDelay: '0.3s' }}>
+              <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-xl mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
+                <Quote className="w-10 h-10 text-purple-400" />
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">Phrase-Based</h4>
-              <p className="text-gray-600">Trendy, culturally relevant phrases that evoke emotion and identity</p>
+              <h4 className="text-2xl font-bold hologram mb-4">Cultural-Sync Framework</h4>
+              <p className="text-muted-foreground/80 leading-relaxed">Quantum-entangled cultural resonance patterns that trigger viral amplification cascades</p>
             </div>
             
-            <div className="text-center hover-lift transition-all duration-500 scale-in" style={{ animationDelay: '0.5s' }}>
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4 hover:scale-110 transition-all duration-300 pulse-gentle">
-                <Smile className="w-8 h-8 text-green-600" />
+            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card p-8 rounded-xl neon-border" style={{ animationDelay: '0.5s' }}>
+              <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-xl mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
+                <Smile className="w-10 h-10 text-green-400" />
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-2">Humorous & Quirky</h4>
-              <p className="text-gray-600">Funny, memorable names that are highly shareable and viral-ready</p>
+              <h4 className="text-2xl font-bold hologram mb-4">Humor-Viral Architecture</h4>
+              <p className="text-muted-foreground/80 leading-relaxed">Meme-optimized neural networks engineered for maximum shareability and viral penetration</p>
             </div>
           </div>
         </div>
