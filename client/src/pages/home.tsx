@@ -148,45 +148,51 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 fade-in">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-white shadow-sm border-b backdrop-blur-sm bg-white/90 sticky top-0 z-50 slide-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center float hover-glow transition-all duration-300">
                   <Crown className="text-white w-5 h-5" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900">MillionaireDomains</h1>
+                  <h1 className="text-xl font-bold text-gray-900 hover:text-primary transition-colors duration-300">MillionaireDomains</h1>
                   <p className="text-sm text-gray-500">Premium Domain Generator</p>
                 </div>
               </div>
             </div>
             <nav className="hidden sm:flex space-x-8">
-              <a href="#features" className="text-gray-700 hover:text-primary transition-colors">Features</a>
-              <Link href="/about" className="text-gray-700 hover:text-primary transition-colors">About</Link>
+              <a href="#features" className="text-gray-700 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                Features
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <Link href="/about" className="text-gray-700 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                About
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
             </nav>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 to-purple-50 py-16">
+      <section className="bg-gradient-to-br from-primary/5 to-purple-50 py-16 gradient-shift overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6">
-              <Star className="w-4 h-4 mr-2" />
+            <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6 pulse-gentle hover-lift transition-all duration-300">
+              <Star className="w-4 h-4 mr-2 bounce-gentle" />
               Based on Millionaire Frameworks
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 slide-up">
               Generate Domain Names Like a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600 gradient-shift">
                 Millionaire
               </span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto slide-up" style={{ animationDelay: '0.2s' }}>
               Discover powerful domain names using proven naming frameworks from successful entrepreneurs.
               Get descriptive, phrase-based, and humorous suggestions powered by AI.
             </p>
@@ -198,14 +204,14 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Generator Form */}
-          <Card className="mb-12 overflow-hidden">
-            <CardHeader className="bg-gradient-to-r from-primary to-primary-dark text-white">
-              <CardTitle className="text-2xl">AI Domain Generator</CardTitle>
-              <CardDescription className="text-primary-100">
+          <Card className="mb-12 overflow-hidden hover-lift transition-all duration-500 scale-in shadow-lg hover:shadow-2xl">
+            <CardHeader className="bg-gradient-to-r from-primary to-primary-dark text-white gradient-shift">
+              <CardTitle className="text-2xl slide-in-left">AI Domain Generator</CardTitle>
+              <CardDescription className="text-primary-100 slide-in-right" style={{ animationDelay: '0.2s' }}>
                 Describe your product or service to get premium domain suggestions
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-8">
+            <CardContent className="p-8 slide-up" style={{ animationDelay: '0.3s' }}>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField
@@ -217,7 +223,7 @@ export default function Home() {
                         <FormControl>
                           <Textarea
                             placeholder="e.g., AI-powered resume builder for Gen Z professionals"
-                            className="min-h-[120px] resize-none"
+                            className="min-h-[120px] resize-none transition-all duration-300 focus:ring-2 focus:ring-primary/50 focus:scale-[1.02] hover:shadow-md"
                             {...field}
                           />
                         </FormControl>
@@ -296,16 +302,16 @@ export default function Home() {
                     <Button
                       type="submit"
                       disabled={generateMutation.isPending}
-                      className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                      className="bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 gradient-shift hover-glow"
                     >
                       {generateMutation.isPending ? (
                         <>
                           <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                          Generating...
+                          <span className="shimmer">Generating...</span>
                         </>
                       ) : (
                         <>
-                          <Wand2 className="w-4 h-4 mr-2" />
+                          <Wand2 className="w-4 h-4 mr-2 bounce-gentle" />
                           Generate Domains
                         </>
                       )}
@@ -318,23 +324,28 @@ export default function Home() {
 
           {/* Loading State */}
           {generateMutation.isPending && (
-            <Card className="p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Card className="p-8 text-center scale-in hover-lift shadow-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 pulse-gentle">
                 <RefreshCw className="w-8 h-8 text-primary animate-spin" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Generating Your Domains...</h3>
-              <p className="text-gray-600">Our AI is crafting premium domain suggestions using millionaire frameworks</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2 slide-up">Generating Your Domains...</h3>
+              <p className="text-gray-600 slide-up shimmer" style={{ animationDelay: '0.2s' }}>Our AI is crafting premium domain suggestions using millionaire frameworks</p>
+              <div className="mt-4 flex justify-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+              </div>
             </Card>
           )}
 
           {/* Results Section */}
           {domains.length > 0 && !generateMutation.isPending && (
-            <div>
+            <div className="slide-up">
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Your Premium Domain Suggestions</h3>
-                  <div className="flex items-center space-x-2 mt-1">
-                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 border-blue-200">
+                  <h3 className="text-2xl font-bold text-gray-900 slide-in-left">Your Premium Domain Suggestions</h3>
+                  <div className="flex items-center space-x-2 mt-1 slide-in-right" style={{ animationDelay: '0.2s' }}>
+                    <Badge variant="secondary" className="bg-blue-100 text-blue-800 border-blue-200 hover-lift transition-all duration-300">
                       Gemini AI (Greg's Framework)
                     </Badge>
                     {isDemoMode && (
@@ -361,7 +372,11 @@ export default function Home() {
                   const colorClass = frameworkColors[domain.style];
                   
                   return (
-                    <Card key={index} className="hover:shadow-xl transition-shadow duration-200">
+                    <Card 
+                      key={index} 
+                      className="hover:shadow-xl transition-all duration-500 hover-lift hover-scale scale-in hover-glow"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
                           <Badge variant="secondary" className={`${colorClass} border`}>
@@ -372,7 +387,7 @@ export default function Home() {
                             variant="ghost"
                             size="sm"
                             onClick={() => copyToClipboard(domain.name)}
-                            className="text-gray-400 hover:text-primary"
+                            className="text-gray-400 hover:text-primary transition-all duration-300 hover:scale-110 hover:rotate-12"
                           >
                             <Copy className="w-4 h-4" />
                           </Button>
@@ -411,7 +426,7 @@ export default function Home() {
                               variant="ghost"
                               size="sm"
                               onClick={() => copyToClipboard(domain.domain)}
-                              className="text-primary hover:text-primary-dark"
+                              className="text-primary hover:text-primary-dark transition-all duration-300 hover:scale-105 hover-lift"
                             >
                               Copy Domain
                             </Button>
@@ -420,7 +435,7 @@ export default function Home() {
                               size="sm"
                               onClick={() => checkDomainAvailability(domain.domain, index)}
                               disabled={checkingDomains.has(domain.domain)}
-                              className="text-gray-500 hover:text-gray-700"
+                              className="text-gray-500 hover:text-gray-700 transition-all duration-300 hover:scale-105 hover-lift"
                             >
                               {checkingDomains.has(domain.domain) ? (
                                 <>
@@ -471,30 +486,30 @@ export default function Home() {
       {/* Features Section */}
       <section id="features" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 slide-up">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Why Choose MillionaireDomains?</h3>
-            <p className="text-xl text-gray-600">Built on proven frameworks used by successful entrepreneurs</p>
+            <p className="text-xl text-gray-600" style={{ animationDelay: '0.2s' }}>Built on proven frameworks used by successful entrepreneurs</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+            <div className="text-center hover-lift transition-all duration-500 scale-in" style={{ animationDelay: '0.1s' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4 hover:scale-110 transition-all duration-300 pulse-gentle">
                 <Lightbulb className="w-8 h-8 text-blue-600" />
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">Descriptive Names</h4>
               <p className="text-gray-600">Clear, memorable names that instantly communicate your value proposition</p>
             </div>
             
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+            <div className="text-center hover-lift transition-all duration-500 scale-in" style={{ animationDelay: '0.3s' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4 hover:scale-110 transition-all duration-300 pulse-gentle">
                 <Quote className="w-8 h-8 text-purple-600" />
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">Phrase-Based</h4>
               <p className="text-gray-600">Trendy, culturally relevant phrases that evoke emotion and identity</p>
             </div>
             
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+            <div className="text-center hover-lift transition-all duration-500 scale-in" style={{ animationDelay: '0.5s' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4 hover:scale-110 transition-all duration-300 pulse-gentle">
                 <Smile className="w-8 h-8 text-green-600" />
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">Humorous & Quirky</h4>
