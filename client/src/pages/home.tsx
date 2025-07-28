@@ -149,42 +149,54 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background fade-in">
-      {/* Header */}
-      <header className="glass-card border-b border-white/10 sticky top-0 z-50 slide-up">
-        <div className="max-w-7xl mx-auto container-responsive">
+      {/* Enhanced Futuristic Header */}
+      <header className="glass-card border-b border-white/10 sticky top-0 z-50 slide-up backdrop-blur-xl bg-background/80">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-cyan-500/5"></div>
+        <div className="relative max-w-7xl mx-auto container-responsive">
           <div className="flex justify-between items-center py-4 sm:py-6">
+            {/* Enhanced Brand Section */}
             <div className="flex items-center min-w-0 flex-1">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300">
-                  <Crown className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300 bg-gradient-to-br from-primary/20 to-primary-dark/20 backdrop-blur-sm">
+                  <Crown className="text-primary w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 pulse-gentle" />
                 </div>
                 <div className="min-w-0">
-                  <h1 className="text-lg sm:text-xl font-bold hologram truncate">MillionaireDomains</h1>
-                  <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">Neural Domain Architecture</p>
+                  <h1 className="text-lg sm:text-xl lg:text-2xl font-bold hologram truncate tracking-wide">MillionaireDomains</h1>
+                  <p className="text-xs sm:text-sm text-muted-foreground/80 font-medium tracking-wider hidden sm:block">NEURAL DOMAIN ARCHITECTURE</p>
                 </div>
               </div>
             </div>
-            <nav className="hidden sm:flex space-x-4 lg:space-x-8">
-              <Link href="/" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group text-sm lg:text-base">
-                Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <a href="#features" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group text-sm lg:text-base">
-                Features
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <Link href="/about" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group text-sm lg:text-base">
-                About
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+            
+            {/* Enhanced Navigation Pills */}
+            <nav className="hidden sm:flex items-center space-x-1 lg:space-x-2">
+              <div className="flex items-center space-x-1 lg:space-x-2 glass-card rounded-full px-2 py-1 neon-border-subtle bg-gradient-to-r from-primary/5 to-primary-dark/5 backdrop-blur-sm">
+                <div className="px-3 py-2 lg:px-4 lg:py-2 rounded-full bg-gradient-to-r from-primary to-primary-dark text-white font-medium text-xs lg:text-sm hover-glow transition-all duration-300 shadow-lg">
+                  <span className="hologram">Home</span>
+                </div>
+                <a href="#features" className="px-3 py-2 lg:px-4 lg:py-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative group text-xs lg:text-sm font-medium">
+                  <span className="hologram">Features</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+                </a>
+                <Link href="/about" className="px-3 py-2 lg:px-4 lg:py-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative group text-xs lg:text-sm font-medium">
+                  <span className="hologram">About</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+                </Link>
+                <Link href="/contact" className="px-3 py-2 lg:px-4 lg:py-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative group text-xs lg:text-sm font-medium">
+                  <span className="hologram">Contact</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+                </Link>
+              </div>
             </nav>
-            {/* Mobile menu button */}
+
+            {/* Enhanced Mobile Menu Button */}
             <div className="sm:hidden">
-              <Button variant="ghost" size="sm" className="text-foreground/80">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </Button>
+              <div className="w-8 h-8 neon-border rounded-lg flex items-center justify-center hover-glow transition-all duration-300 bg-gradient-to-br from-primary/20 to-primary-dark/20 backdrop-blur-sm cursor-pointer">
+                <div className="space-y-1">
+                  <div className="w-4 h-0.5 bg-primary hologram transition-all duration-300"></div>
+                  <div className="w-4 h-0.5 bg-primary hologram transition-all duration-300"></div>
+                  <div className="w-4 h-0.5 bg-primary hologram transition-all duration-300"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

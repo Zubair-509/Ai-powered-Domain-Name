@@ -5,36 +5,46 @@ import { Crown, ArrowLeft, Shield, Eye, Lock, UserCheck, Database, Globe } from 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-background fade-in">
-      {/* Header */}
-      <header className="glass-card border-b border-white/10 sticky top-0 z-50 slide-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+      {/* Enhanced Futuristic Header */}
+      <header className="glass-card border-b border-white/10 sticky top-0 z-50 slide-up backdrop-blur-xl bg-background/80">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-cyan-500/5"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4 sm:py-6">
+            {/* Enhanced Brand Section */}
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300">
-                  <Crown className="text-primary w-5 h-5" />
+                <div className="w-10 h-10 lg:w-12 lg:h-12 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300 bg-gradient-to-br from-primary/20 to-primary-dark/20 backdrop-blur-sm">
+                  <Crown className="text-primary w-5 h-5 lg:w-6 lg:h-6 pulse-gentle" />
                 </div>
                 <div>
                   <Link href="/">
-                    <h1 className="text-xl font-bold hologram cursor-pointer">MillionaireDomains</h1>
+                    <h1 className="text-xl lg:text-2xl font-bold hologram cursor-pointer tracking-wide">MillionaireDomains</h1>
                   </Link>
-                  <p className="text-sm text-muted-foreground">Neural Domain Architecture</p>
+                  <p className="text-sm text-muted-foreground/80 font-medium tracking-wider">NEURAL DOMAIN ARCHITECTURE</p>
                 </div>
               </div>
             </div>
-            <nav className="hidden sm:flex space-x-8">
-              <Link href="/" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
-                Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <a href="/#features" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
-                Features
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <Link href="/about" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
-                About
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+            
+            {/* Enhanced Navigation Pills */}
+            <nav className="hidden sm:flex items-center space-x-1 lg:space-x-2">
+              <div className="flex items-center space-x-1 lg:space-x-2 glass-card rounded-full px-2 py-1 neon-border-subtle bg-gradient-to-r from-primary/5 to-primary-dark/5 backdrop-blur-sm">
+                <Link href="/" className="px-3 py-2 lg:px-4 lg:py-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative group text-xs lg:text-sm font-medium">
+                  <span className="hologram">Home</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+                </Link>
+                <a href="/#features" className="px-3 py-2 lg:px-4 lg:py-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative group text-xs lg:text-sm font-medium">
+                  <span className="hologram">Features</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+                </a>
+                <Link href="/about" className="px-3 py-2 lg:px-4 lg:py-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative group text-xs lg:text-sm font-medium">
+                  <span className="hologram">About</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+                </Link>
+                <Link href="/contact" className="px-3 py-2 lg:px-4 lg:py-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative group text-xs lg:text-sm font-medium">
+                  <span className="hologram">Contact</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary-dark/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 -z-10"></div>
+                </Link>
+              </div>
             </nav>
           </div>
         </div>

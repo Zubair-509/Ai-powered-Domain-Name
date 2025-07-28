@@ -172,6 +172,17 @@
   .bounce-gentle {
     animation: bounceGentle 2s ease-in-out infinite;
   }
+
+  /* Enhanced Navigation Effects */
+  .neon-border-subtle {
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+  }
+
+  .neon-border-subtle:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+  }
   
   .gradient-shift {
     background-size: 200% 200%;
