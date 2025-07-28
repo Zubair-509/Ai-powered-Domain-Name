@@ -165,12 +165,16 @@ export default function Home() {
               </div>
             </div>
             <nav className="hidden sm:flex space-x-8">
+              <Link href="/" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                Home
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
+              </Link>
               <a href="#features" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Features
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </a>
               <Link href="/about" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
-                Neural Framework
+                About
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </Link>
             </nav>
@@ -573,6 +577,11 @@ export default function Home() {
               <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
               <ul className="space-y-3">
                 <li>
+                  <Link href="/" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                    Home
+                  </Link>
+                </li>
+                <li>
                   <a href="#features" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
                     Features
                   </a>
@@ -583,14 +592,9 @@ export default function Home() {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
-                    How It Works
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
-                    Domain Tips
-                  </a>
+                  <Link href="/contact" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                    Contact
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -664,15 +668,15 @@ export default function Home() {
                 © 2025 MillionaireDomains. All rights reserved. Transforming ideas into million-dollar brands.
               </div>
               <div className="flex items-center space-x-6">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
                   Privacy Policy
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                </Link>
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
                   Terms of Service
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                </Link>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
                   Contact
-                </a>
+                </Link>
               </div>
             </div>
           </div>

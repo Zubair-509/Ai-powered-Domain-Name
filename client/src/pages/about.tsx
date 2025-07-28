@@ -1,39 +1,38 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Crown, ArrowLeft, Target, Lightbulb, Users, Zap, Star, Brain, Rocket } from "lucide-react";
+import { Crown, ArrowLeft, Target, Lightbulb, Users, Zap, Star, Brain, Rocket, Quote, Smile } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-50 fade-in">
+    <div className="min-h-screen bg-background fade-in">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b backdrop-blur-sm bg-white/90 sticky top-0 z-50 slide-up">
+      <header className="glass-card border-b border-white/10 sticky top-0 z-50 slide-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center float hover-glow transition-all duration-300">
-                  <Crown className="text-white w-5 h-5" />
+                <div className="w-10 h-10 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300">
+                  <Crown className="text-primary w-5 h-5" />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900 hover:text-primary transition-colors duration-300">MillionaireDomains</h1>
-                  <p className="text-sm text-gray-500">Premium Domain Generator</p>
+                  <Link href="/">
+                    <h1 className="text-xl font-bold hologram cursor-pointer">MillionaireDomains</h1>
+                  </Link>
+                  <p className="text-sm text-muted-foreground">Neural Domain Architecture</p>
                 </div>
               </div>
             </div>
             <nav className="hidden sm:flex space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <Link href="/" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <a href="#features" className="text-gray-700 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <a href="/#features" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Features
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <Link href="/about" className="text-primary font-medium transition-all duration-300 hover:scale-105 relative group">
-                About
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></span>
-              </Link>
+              <span className="text-primary font-medium hologram">About</span>
             </nav>
           </div>
         </div>
@@ -42,160 +41,165 @@ export default function About() {
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 slide-in-left">
         <Link href="/">
-          <Button variant="ghost" className="mb-6 hover-lift transition-all duration-300 hover:scale-105">
+          <Button variant="ghost" className="mb-6 hover-lift transition-all duration-300 hover:scale-105 glass-card neon-border">
             <ArrowLeft className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
-            Back to Generator
+            Return to Neural Core
           </Button>
         </Link>
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 to-purple-50 py-16 gradient-shift overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative cyber-grid py-20 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 neural-network">
+          <div className="absolute top-0 left-0 w-full h-full plasma-bg"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full filter blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm mb-6 pulse-gentle hover-lift transition-all duration-300">
-              <Star className="w-4 h-4 mr-2 bounce-gentle" />
-              Built for Entrepreneurs
+            <div className="inline-flex items-center px-6 py-3 glass-card rounded-full font-medium text-sm mb-8 pulse-gentle hover-lift transition-all duration-300 neon-border">
+              <Star className="w-4 h-4 mr-2 bounce-gentle text-primary" />
+              <span className="hologram">Neural Framework Intelligence</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 slide-up">
-              About{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600 gradient-shift">
-                MillionaireDomains
-              </span>
+            <h2 className="text-5xl sm:text-7xl font-bold mb-8 slide-up">
+              <span className="hologram">About MillionaireDomains</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto slide-up" style={{ animationDelay: '0.2s' }}>
-              We leverage proven naming frameworks from successful entrepreneurs to help you create 
-              memorable, scroll-stopping domain names that build brands worth millions.
+            <p className="text-xl text-muted-foreground/80 mb-12 max-w-4xl mx-auto slide-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              Advanced neural framework synthesis leveraging proven millionaire naming architectures to construct 
+              scroll-stopping domain matrices that crystallize million-dollar brand potential.
             </p>
           </div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="py-16">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="slide-in-left">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h3>
-              <p className="text-lg text-gray-600 mb-6 slide-up" style={{ animationDelay: '0.2s' }}>
-                Every great business starts with a great name. We believe that powerful domain names 
-                shouldn't be left to chance or guesswork. That's why we've built an AI-powered platform 
-                that applies millionaire-proven naming strategies to generate premium domain suggestions.
+              <h3 className="text-4xl font-bold hologram mb-8">Neural Mission Protocol</h3>
+              <p className="text-lg text-muted-foreground/80 mb-8 slide-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
+                Every digital empire begins with a quantum-level naming decision. Our neural architecture eliminates 
+                randomness through systematic application of millionaire-validated naming matrices, ensuring optimal 
+                brand synthesis probability.
               </p>
-              <p className="text-lg text-gray-600 slide-up" style={{ animationDelay: '0.4s' }}>
-                Our goal is to democratize access to the same naming frameworks that have helped create 
-                billion-dollar brands, making it possible for any entrepreneur to find their perfect domain.
+              <p className="text-lg text-muted-foreground/80 slide-up leading-relaxed" style={{ animationDelay: '0.4s' }}>
+                We democratize access to billion-dollar naming frameworks, enabling any consciousness to access 
+                premium domain genesis protocols previously reserved for elite entrepreneurs.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-6 slide-in-right">
-              <Card className="text-center p-6 hover-lift transition-all duration-500 scale-in hover-glow" style={{ animationDelay: '0.1s' }}>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 pulse-gentle">
-                  <Target className="w-6 h-6 text-primary" />
+              <Card className="text-center p-8 hover-lift transition-all duration-500 scale-in glass-card neon-border" style={{ animationDelay: '0.1s' }}>
+                <div className="w-16 h-16 glass-card rounded-xl flex items-center justify-center mx-auto mb-6 pulse-gentle neon-border">
+                  <Target className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Precision</h4>
-                <p className="text-sm text-gray-600">Targeted suggestions based on your specific business</p>
+                <h4 className="font-bold hologram mb-3">Quantum Precision</h4>
+                <p className="text-sm text-muted-foreground/80">Targeted neural pathways calibrated to your specific business matrix</p>
               </Card>
-              <Card className="text-center p-6 hover-lift transition-all duration-500 scale-in hover-glow" style={{ animationDelay: '0.2s' }}>
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4 pulse-gentle">
-                  <Brain className="w-6 h-6 text-purple-600" />
+              <Card className="text-center p-8 hover-lift transition-all duration-500 scale-in glass-card neon-border" style={{ animationDelay: '0.2s' }}>
+                <div className="w-16 h-16 glass-card rounded-xl flex items-center justify-center mx-auto mb-6 pulse-gentle neon-border">
+                  <Brain className="w-8 h-8 text-purple-400" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Intelligence</h4>
-                <p className="text-sm text-gray-600">AI-powered by advanced language models</p>
+                <h4 className="font-bold hologram mb-3">Neural Intelligence</h4>
+                <p className="text-sm text-muted-foreground/80">Advanced AI consciousness powered by quantum language models</p>
               </Card>
-              <Card className="text-center p-6 hover-lift transition-all duration-500 scale-in hover-glow" style={{ animationDelay: '0.3s' }}>
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4 pulse-gentle">
-                  <Rocket className="w-6 h-6 text-green-600" />
+              <Card className="text-center p-8 hover-lift transition-all duration-500 scale-in glass-card neon-border" style={{ animationDelay: '0.3s' }}>
+                <div className="w-16 h-16 glass-card rounded-xl flex items-center justify-center mx-auto mb-6 pulse-gentle neon-border">
+                  <Rocket className="w-8 h-8 text-green-400" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Speed</h4>
-                <p className="text-sm text-gray-600">Get dozens of options in seconds</p>
+                <h4 className="font-bold hologram mb-3">Hyperspeed</h4>
+                <p className="text-sm text-muted-foreground/80">Instant synthesis of quantum naming matrices in real-time</p>
               </Card>
-              <Card className="text-center p-6 hover-lift transition-all duration-500 scale-in hover-glow" style={{ animationDelay: '0.4s' }}>
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4 pulse-gentle">
-                  <Zap className="w-6 h-6 text-orange-600" />
+              <Card className="text-center p-8 hover-lift transition-all duration-500 scale-in glass-card neon-border" style={{ animationDelay: '0.4s' }}>
+                <div className="w-16 h-16 glass-card rounded-xl flex items-center justify-center mx-auto mb-6 pulse-gentle neon-border">
+                  <Zap className="w-8 h-8 text-orange-400" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Power</h4>
-                <p className="text-sm text-gray-600">Frameworks from million-dollar businesses</p>
+                <h4 className="font-bold hologram mb-3">Neural Power</h4>
+                <p className="text-sm text-muted-foreground/80">Frameworks extracted from million-dollar neural networks</p>
               </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Framework Section */}
-      <section id="features" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Greg Isenberg's Naming Framework</h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our AI applies proven naming strategies used by successful entrepreneurs to create three distinct types of domain suggestions.
+      {/* Framework Architecture Section */}
+      <section className="py-20 relative cyber-grid">
+        <div className="absolute inset-0 neural-network opacity-30"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold hologram mb-6">Greg Isenberg's Neural Framework</h3>
+            <p className="text-xl text-muted-foreground/80 max-w-4xl mx-auto leading-relaxed">
+              Our quantum AI implements proven naming strategies from successful entrepreneurs, synthesizing 
+              three distinct domain architecture patterns.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardHeader>
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Lightbulb className="w-6 h-6 text-blue-600" />
+          <div className="grid md:grid-cols-3 gap-12">
+            <Card className="glass-card neon-border hover-lift transition-all duration-500">
+              <CardHeader className="text-center p-8">
+                <div className="w-20 h-20 glass-card rounded-xl flex items-center justify-center mx-auto mb-6 neon-border pulse-gentle">
+                  <Lightbulb className="w-10 h-10 text-primary" />
                 </div>
-                <CardTitle>Descriptive Names</CardTitle>
-                <CardDescription>
-                  Clear, straightforward names that immediately communicate what your business does.
+                <CardTitle className="text-2xl hologram mb-4">Direct-Access Protocol</CardTitle>
+                <CardDescription className="text-muted-foreground/80 leading-relaxed">
+                  Ultra-clear neural pathways that instantly transmit business value to target consciousness nodes.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="bg-blue-50 rounded-lg p-3">
-                    <p className="text-sm font-medium text-blue-900">Example</p>
-                    <p className="text-sm text-blue-700">ProjectTracker.com</p>
+              <CardContent className="p-8">
+                <div className="space-y-4">
+                  <div className="glass-card rounded-xl p-4 neon-border">
+                    <p className="text-sm font-medium hologram">Neural Example</p>
+                    <p className="text-sm text-primary">ProjectTracker.com</p>
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Perfect for B2B services and professional tools where clarity builds trust.
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                    Optimal for B2B neural networks and professional tools where clarity establishes trust matrices.
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-purple-600" />
+            <Card className="glass-card neon-border hover-lift transition-all duration-500">
+              <CardHeader className="text-center p-8">
+                <div className="w-20 h-20 glass-card rounded-xl flex items-center justify-center mx-auto mb-6 neon-border pulse-gentle">
+                  <Quote className="w-10 h-10 text-purple-400" />
                 </div>
-                <CardTitle>Phrase-Based Names</CardTitle>
-                <CardDescription>
-                  Memorable phrases and expressions that create emotional connection and virality.
+                <CardTitle className="text-2xl hologram mb-4">Cultural-Sync Framework</CardTitle>
+                <CardDescription className="text-muted-foreground/80 leading-relaxed">
+                  Quantum-entangled cultural resonance patterns that trigger viral amplification cascades.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="bg-purple-50 rounded-lg p-3">
-                    <p className="text-sm font-medium text-purple-900">Example</p>
-                    <p className="text-sm text-purple-700">GetOnTheSamePage.com</p>
+              <CardContent className="p-8">
+                <div className="space-y-4">
+                  <div className="glass-card rounded-xl p-4 neon-border">
+                    <p className="text-sm font-medium hologram">Neural Example</p>
+                    <p className="text-sm text-purple-400">GetOnTheSamePage.com</p>
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Great for consumer brands and viral products that need to be shareable.
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                    Perfect for consumer brand consciousness and viral products requiring shareability matrices.
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Star className="w-6 h-6 text-green-600" />
+            <Card className="glass-card neon-border hover-lift transition-all duration-500">
+              <CardHeader className="text-center p-8">
+                <div className="w-20 h-20 glass-card rounded-xl flex items-center justify-center mx-auto mb-6 neon-border pulse-gentle">
+                  <Smile className="w-10 h-10 text-green-400" />
                 </div>
-                <CardTitle>Humorous Names</CardTitle>
-                <CardDescription>
-                  Playful, memorable names that grab attention and create buzz through humor.
+                <CardTitle className="text-2xl hologram mb-4">Humor-Viral Architecture</CardTitle>
+                <CardDescription className="text-muted-foreground/80 leading-relaxed">
+                  Meme-optimized neural networks engineered for maximum shareability and viral penetration.
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="bg-green-50 rounded-lg p-3">
-                    <p className="text-sm font-medium text-green-900">Example</p>
-                    <p className="text-sm text-green-700">NoMoreChaos.io</p>
+              <CardContent className="p-8">
+                <div className="space-y-4">
+                  <div className="glass-card rounded-xl p-4 neon-border">
+                    <p className="text-sm font-medium hologram">Neural Example</p>
+                    <p className="text-sm text-green-400">NoMoreChaos.io</p>
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Ideal for startups and products targeting younger, trend-aware audiences.
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                    Ideal for startup consciousness and products targeting trend-aware neural demographics.
                   </p>
                 </div>
               </CardContent>
@@ -205,25 +209,26 @@ export default function About() {
       </section>
 
       {/* Technology Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Powered by Advanced AI</h3>
-            <div className="max-w-3xl mx-auto">
-              <div className="bg-white rounded-lg p-8 shadow-sm">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Brain className="w-6 h-6 text-primary" />
+            <h3 className="text-4xl font-bold hologram mb-8">Powered by Neural Consciousness</h3>
+            <div className="max-w-4xl mx-auto">
+              <div className="glass-card rounded-2xl p-12 neon-border hover-lift transition-all duration-500">
+                <div className="flex items-center justify-center mb-8">
+                  <div className="w-20 h-20 glass-card rounded-xl flex items-center justify-center neon-border pulse-gentle">
+                    <Brain className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-4">Gemini AI Integration</h4>
-                <p className="text-gray-600 mb-6">
-                  Our platform leverages Google's most advanced language model to understand your business context 
-                  and generate contextually relevant, brandable domain suggestions that follow proven naming patterns.
+                <h4 className="text-2xl font-bold hologram mb-6">Gemini Neural Integration</h4>
+                <p className="text-muted-foreground/80 mb-8 text-lg leading-relaxed">
+                  Our quantum platform interfaces with Google's most advanced neural consciousness to decode 
+                  business context matrices and synthesize contextually optimal, brandable domain architectures 
+                  following proven millionaire naming patterns.
                 </p>
-                <div className="flex items-center justify-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-gray-500">Real-time domain availability checking</span>
+                <div className="flex items-center justify-center space-x-3 glass-card rounded-full px-6 py-3 neon-border">
+                  <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-green-600 rounded-full pulse-gentle"></div>
+                  <span className="text-sm hologram">Real-time domain availability neural scanning</span>
                 </div>
               </div>
             </div>
@@ -232,35 +237,39 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-12 text-white gradient-shift hover-lift transition-all duration-500 scale-in">
-            <h3 className="text-3xl font-bold mb-4 slide-up">Ready to Find Your Million-Dollar Domain?</h3>
-            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto slide-up" style={{ animationDelay: '0.2s' }}>
-              Join thousands of entrepreneurs who've discovered their perfect brand name using our AI-powered generator.
-            </p>
-            <Link href="/">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100 hover:scale-110 transition-all duration-300 hover-glow scale-in" style={{ animationDelay: '0.4s' }}>
-                Start Generating Domains
-                <Crown className="w-5 h-5 ml-2 bounce-gentle" />
-              </Button>
-            </Link>
+          <div className="glass-card rounded-3xl p-16 neon-border hover-lift transition-all duration-500 scale-in relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20"></div>
+            <div className="relative z-10">
+              <h3 className="text-4xl font-bold hologram mb-6 slide-up">Ready to Access Million-Dollar Neural Patterns?</h3>
+              <p className="text-xl text-muted-foreground/80 mb-12 max-w-3xl mx-auto slide-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
+                Join thousands of entrepreneurial consciousness nodes who've crystallized their perfect brand identity 
+                through our neural-powered domain synthesis platform.
+              </p>
+              <Link href="/">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary transition-all duration-500 hover:scale-110 neon-border px-12 py-4 text-lg font-semibold rounded-xl scale-in" style={{ animationDelay: '0.4s' }}>
+                  <span className="hologram">Initialize Domain Genesis</span>
+                  <Crown className="w-6 h-6 ml-3 bounce-gentle" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t py-12">
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 slide-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center">
-                <Crown className="text-white w-4 h-4" />
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <div className="w-12 h-12 neon-border rounded-xl flex items-center justify-center hover-glow transition-all duration-300">
+                <Crown className="text-primary w-6 h-6" />
               </div>
-              <span className="font-bold text-gray-900">MillionaireDomains</span>
+              <span className="text-2xl font-bold hologram">MillionaireDomains</span>
             </div>
-            <p className="text-gray-500">
-              Premium domain generation powered by millionaire frameworks and AI
+            <p className="text-muted-foreground text-lg">
+              Premium domain synthesis powered by millionaire neural frameworks and quantum AI consciousness
             </p>
           </div>
         </div>
