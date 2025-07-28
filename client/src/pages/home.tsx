@@ -151,63 +151,70 @@ export default function Home() {
     <div className="min-h-screen bg-background fade-in">
       {/* Header */}
       <header className="glass-card border-b border-white/10 sticky top-0 z-50 slide-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300">
-                  <Crown className="text-primary w-5 h-5" />
+        <div className="max-w-7xl mx-auto container-responsive">
+          <div className="flex justify-between items-center py-4 sm:py-6">
+            <div className="flex items-center min-w-0 flex-1">
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 neon-border rounded-xl flex items-center justify-center float hover-glow transition-all duration-300">
+                  <Crown className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <h1 className="text-xl font-bold hologram">MillionaireDomains</h1>
-                  <p className="text-sm text-muted-foreground">Neural Domain Architecture</p>
+                <div className="min-w-0">
+                  <h1 className="text-lg sm:text-xl font-bold hologram truncate">MillionaireDomains</h1>
+                  <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">Neural Domain Architecture</p>
                 </div>
               </div>
             </div>
-            <nav className="hidden sm:flex space-x-8">
-              <Link href="/" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+            <nav className="hidden sm:flex space-x-4 lg:space-x-8">
+              <Link href="/" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group text-sm lg:text-base">
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <a href="#features" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <a href="#features" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group text-sm lg:text-base">
                 Features
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <Link href="/about" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <Link href="/about" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group text-sm lg:text-base">
                 About
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-dark transition-all duration-300 group-hover:w-full"></span>
               </Link>
             </nav>
+            {/* Mobile menu button */}
+            <div className="sm:hidden">
+              <Button variant="ghost" size="sm" className="text-foreground/80">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative cyber-grid py-20 lg:py-32 overflow-hidden">
+      <section className="relative cyber-grid py-12 sm:py-20 lg:py-32 overflow-hidden">
         {/* Neural Network Background */}
         <div className="absolute inset-0 neural-network">
           <div className="absolute top-0 left-0 w-full h-full plasma-bg"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full filter blur-2xl animate-pulse delay-500"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full filter blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-80 sm:h-80 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full filter blur-2xl animate-pulse delay-500"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto container-responsive">
           <div className="text-center">
-            <div className="inline-flex items-center px-6 py-3 glass-card rounded-full font-medium text-sm mb-8 pulse-gentle hover-lift transition-all duration-300 neon-border">
-              <Star className="w-4 h-4 mr-2 bounce-gentle text-primary" />
+            <div className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 glass-card rounded-full font-medium text-xs sm:text-sm mb-6 sm:mb-8 pulse-gentle hover-lift transition-all duration-300 neon-border">
+              <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-2 bounce-gentle text-primary" />
               <span className="hologram">Neural Framework Architecture</span>
             </div>
-            <h2 className="text-5xl sm:text-7xl font-bold mb-8 slide-up">
-              <span className="hologram">Domain Genesis</span>
-              <br />
-              <span className="text-2xl sm:text-3xl font-normal text-muted-foreground block mt-2">
+            <h2 className="hero-heading font-bold mb-6 sm:mb-8 slide-up">
+              <span className="hologram block">Domain Genesis</span>
+              <span className="text-lg sm:text-2xl md:text-3xl font-normal text-muted-foreground block mt-2">
                 AI-Powered Brand Evolution
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground/80 mb-12 max-w-4xl mx-auto slide-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/80 mb-8 sm:mb-12 max-w-4xl mx-auto slide-up leading-relaxed px-4" style={{ animationDelay: '0.2s' }}>
               Harness quantum-level naming algorithms powered by proven millionaire frameworks.
-              Transform concepts into digital empires through neural domain synthesis.
+              <span className="hidden sm:inline"> Transform concepts into digital empires through neural domain synthesis.</span>
             </p>
           </div>
         </div>
@@ -412,10 +419,10 @@ export default function Home() {
                         </div>
                         
                         <div className="mb-4">
-                          <h4 className="text-2xl font-bold hologram mb-2">{domain.name}</h4>
+                          <h4 className="text-xl sm:text-2xl font-bold hologram mb-2 break-words">{domain.name}</h4>
                           <div className="inline-flex items-center px-3 py-1 glass-card rounded-lg neon-border">
                             <Globe className="w-4 h-4 mr-2 text-primary" />
-                            <span className="text-sm font-medium text-foreground">{domain.domain}</span>
+                            <span className="text-sm font-medium text-foreground break-all">{domain.domain}</span>
                           </div>
                         </div>
                         
@@ -439,13 +446,14 @@ export default function Home() {
                               </Badge>
                             )}
                           </div>
-                          <div className="flex items-center space-x-2">
+                          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
                             <Button
                               variant="ghost"
                               size="sm"
                               onClick={() => copyToClipboard(domain.domain)}
-                              className="text-primary hover:text-primary/80 transition-all duration-300 hover:scale-105 hover-lift"
+                              className="text-primary hover:text-primary/80 transition-all duration-300 hover:scale-105 hover-lift text-xs sm:text-sm w-full sm:w-auto"
                             >
+                              <Copy className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                               Copy Domain
                             </Button>
                             <Button
@@ -453,16 +461,16 @@ export default function Home() {
                               size="sm"
                               onClick={() => checkDomainAvailability(domain.domain, index)}
                               disabled={checkingDomains.has(domain.domain)}
-                              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 hover-lift"
+                              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 hover-lift text-xs sm:text-sm w-full sm:w-auto"
                             >
                               {checkingDomains.has(domain.domain) ? (
                                 <>
-                                  <RefreshCw className="w-4 h-4 mr-1 animate-spin" />
+                                  <RefreshCw className="w-3 h-3 sm:w-4 sm:h-4 mr-1 animate-spin" />
                                   Scanning...
                                 </>
                               ) : (
                                 <>
-                                  <ExternalLink className="w-4 h-4 mr-1" />
+                                  <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                                   Check Availability
                                 </>
                               )}
@@ -474,15 +482,15 @@ export default function Home() {
                         {domain.isAvailable === false && domain.alternatives && domain.alternatives.length > 0 && (
                           <div className="mt-4 p-4 glass-card border border-orange-400/30 rounded-lg">
                             <h5 className="text-sm font-semibold text-orange-400 mb-2 hologram">Alternative Neural Domains:</h5>
-                            <div className="grid grid-cols-2 gap-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               {domain.alternatives.map((alternative, altIndex) => (
                                 <div key={altIndex} className="flex items-center justify-between p-2 glass-card rounded neon-border">
-                                  <span className="text-sm text-foreground">{alternative}</span>
+                                  <span className="text-xs sm:text-sm text-foreground break-all flex-1 mr-2">{alternative}</span>
                                   <Button
                                     variant="ghost"
                                     size="sm"
                                     onClick={() => copyToClipboard(alternative)}
-                                    className="text-xs text-primary hover:text-primary/80"
+                                    className="text-xs text-primary hover:text-primary/80 flex-shrink-0"
                                   >
                                     <Copy className="w-3 h-3" />
                                   </Button>
@@ -502,71 +510,71 @@ export default function Home() {
       </section>
 
       {/* Neural Framework Matrix */}
-      <section id="features" className="py-20 relative cyber-grid">
+      <section id="features" className="py-12 sm:py-20 relative cyber-grid">
         <div className="absolute inset-0 neural-network opacity-30"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 slide-up">
-            <h3 className="text-4xl font-bold hologram mb-6">Neural Architecture Protocols</h3>
-            <p className="text-xl text-muted-foreground/80 max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
+        <div className="relative z-10 max-w-7xl mx-auto container-responsive">
+          <div className="text-center mb-12 sm:mb-16 slide-up">
+            <h3 className="heading-responsive font-bold hologram mb-4 sm:mb-6">Neural Architecture Protocols</h3>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/80 max-w-3xl mx-auto px-4" style={{ animationDelay: '0.2s' }}>
               Advanced millionaire framework matrices implemented through quantum-level brand synthesis algorithms
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card p-8 rounded-xl neon-border" style={{ animationDelay: '0.1s' }}>
-              <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-xl mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
-                <Lightbulb className="w-10 h-10 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card card-responsive rounded-xl neon-border" style={{ animationDelay: '0.1s' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 glass-card rounded-xl mb-4 sm:mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
+                <Lightbulb className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
               </div>
-              <h4 className="text-2xl font-bold hologram mb-4">Direct-Access Protocol</h4>
-              <p className="text-muted-foreground/80 leading-relaxed">Ultra-clear neural pathways that instantly transmit value matrices to target consciousness nodes</p>
+              <h4 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Direct-Access Protocol</h4>
+              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Ultra-clear neural pathways that instantly transmit value matrices to target consciousness nodes</p>
             </div>
             
-            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card p-8 rounded-xl neon-border" style={{ animationDelay: '0.3s' }}>
-              <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-xl mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
-                <Quote className="w-10 h-10 text-purple-400" />
+            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card card-responsive rounded-xl neon-border" style={{ animationDelay: '0.3s' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 glass-card rounded-xl mb-4 sm:mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
+                <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400" />
               </div>
-              <h4 className="text-2xl font-bold hologram mb-4">Cultural-Sync Framework</h4>
-              <p className="text-muted-foreground/80 leading-relaxed">Quantum-entangled cultural resonance patterns that trigger viral amplification cascades</p>
+              <h4 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Cultural-Sync Framework</h4>
+              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Quantum-entangled cultural resonance patterns that trigger viral amplification cascades</p>
             </div>
             
-            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card p-8 rounded-xl neon-border" style={{ animationDelay: '0.5s' }}>
-              <div className="inline-flex items-center justify-center w-20 h-20 glass-card rounded-xl mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
-                <Smile className="w-10 h-10 text-green-400" />
+            <div className="text-center hover-lift transition-all duration-500 scale-in glass-card card-responsive rounded-xl neon-border" style={{ animationDelay: '0.5s' }}>
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 glass-card rounded-xl mb-4 sm:mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
+                <Smile className="w-8 h-8 sm:w-10 sm:h-10 text-green-400" />
               </div>
-              <h4 className="text-2xl font-bold hologram mb-4">Humor-Viral Architecture</h4>
-              <p className="text-muted-foreground/80 leading-relaxed">Meme-optimized neural networks engineered for maximum shareability and viral penetration</p>
+              <h4 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Humor-Viral Architecture</h4>
+              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Meme-optimized neural networks engineered for maximum shareability and viral penetration</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Enhanced Footer */}
-      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 slide-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 sm:py-16 slide-up">
+        <div className="max-w-7xl mx-auto container-responsive">
           {/* Main Footer Content */}
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Brand Section */}
-            <div className="md:col-span-2 slide-in-left">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center float hover-glow transition-all duration-300">
-                  <Crown className="text-white w-6 h-6" />
+            <div className="sm:col-span-2 md:col-span-2 slide-in-left">
+              <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center float hover-glow transition-all duration-300">
+                  <Crown className="text-white w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">MillionaireDomains</h3>
-                  <p className="text-gray-400 text-sm">Premium Domain Generator</p>
+                  <h3 className="text-xl sm:text-2xl font-bold">MillionaireDomains</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm">Premium Domain Generator</p>
                 </div>
               </div>
-              <p className="text-gray-300 text-lg mb-6 max-w-md">
+              <p className="text-gray-300 text-base sm:text-lg mb-4 sm:mb-6 max-w-md">
                 Discover powerful domain names using proven naming frameworks from successful entrepreneurs. 
                 Turn your ideas into million-dollar brands.
               </p>
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2 text-sm text-gray-400">
-                  <Shield className="w-4 h-4 text-green-400 pulse-gentle" />
+              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-400">
+                  <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 pulse-gentle" />
                   <span>Powered by Gemini AI</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm text-gray-400">
-                  <Heart className="w-4 h-4 text-red-400 pulse-gentle" />
+                <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-400">
+                  <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-red-400 pulse-gentle" />
                   <span>Made with passion</span>
                 </div>
               </div>
@@ -574,25 +582,25 @@ export default function Home() {
 
             {/* Quick Links */}
             <div className="slide-in-right" style={{ animationDelay: '0.2s' }}>
-              <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
-              <ul className="space-y-3">
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Quick Links</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 <li>
-                  <Link href="/" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                  <Link href="/" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block text-sm sm:text-base">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <a href="#features" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                  <a href="#features" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block text-sm sm:text-base">
                     Features
                   </a>
                 </li>
                 <li>
-                  <Link href="/about" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                  <Link href="/about" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block text-sm sm:text-base">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                  <Link href="/contact" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block text-sm sm:text-base">
                     Contact
                   </Link>
                 </li>
@@ -601,33 +609,33 @@ export default function Home() {
 
             {/* Stats Section */}
             <div className="slide-in-right" style={{ animationDelay: '0.4s' }}>
-              <h4 className="text-lg font-semibold mb-4 text-white">Success Metrics</h4>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                    <TrendingUp className="w-4 h-4 text-blue-400" />
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Success Metrics</h4>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">10,000+</p>
-                    <p className="text-gray-400 text-sm">Domains Generated</p>
+                    <p className="text-white font-semibold text-sm sm:text-base">10,000+</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">Domains Generated</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
-                    <Users className="w-4 h-4 text-green-400" />
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                    <Users className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">2,500+</p>
-                    <p className="text-gray-400 text-sm">Happy Entrepreneurs</p>
+                    <p className="text-white font-semibold text-sm sm:text-base">2,500+</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">Happy Entrepreneurs</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                    <Zap className="w-4 h-4 text-purple-400" />
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                    <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">98%</p>
-                    <p className="text-gray-400 text-sm">Satisfaction Rate</p>
+                    <p className="text-white font-semibold text-sm sm:text-base">98%</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">Satisfaction Rate</p>
                   </div>
                 </div>
               </div>
@@ -635,46 +643,46 @@ export default function Home() {
           </div>
 
           {/* Framework Highlight */}
-          <div className="border-t border-gray-700 pt-8 mb-8 scale-in" style={{ animationDelay: '0.6s' }}>
+          <div className="border-t border-gray-700 pt-6 sm:pt-8 mb-6 sm:mb-8 scale-in" style={{ animationDelay: '0.6s' }}>
             <div className="text-center">
-              <h4 className="text-lg font-semibold mb-4 text-white">Built on Greg Isenberg's Proven Framework</h4>
-              <div className="flex justify-center items-center space-x-8 flex-wrap gap-4">
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-white">Built on Greg Isenberg's Proven Framework</h4>
+              <div className="flex justify-center items-center space-x-4 sm:space-x-8 flex-wrap gap-3 sm:gap-4">
                 <div className="flex items-center space-x-2 text-gray-300">
-                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                    <Lightbulb className="w-4 h-4 text-blue-400" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                    <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
                   </div>
-                  <span className="text-sm">Descriptive</span>
+                  <span className="text-xs sm:text-sm">Descriptive</span>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-300">
-                  <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                    <Quote className="w-4 h-4 text-purple-400" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                    <Quote className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
                   </div>
-                  <span className="text-sm">Phrase-Based</span>
+                  <span className="text-xs sm:text-sm">Phrase-Based</span>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-300">
-                  <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
-                    <Smile className="w-4 h-4 text-green-400" />
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                    <Smile className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
                   </div>
-                  <span className="text-sm">Humorous</span>
+                  <span className="text-xs sm:text-sm">Humorous</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="border-t border-gray-700 pt-8 fade-in" style={{ animationDelay: '0.8s' }}>
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="border-t border-gray-700 pt-6 sm:pt-8 fade-in" style={{ animationDelay: '0.8s' }}>
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
                 © 2025 MillionaireDomains. All rights reserved. Transforming ideas into million-dollar brands.
               </div>
-              <div className="flex items-center space-x-6">
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 lg:space-x-6">
+                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm hover:scale-105 transform">
                   Privacy Policy
                 </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm hover:scale-105 transform">
                   Terms of Service
                 </Link>
-                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300 text-xs sm:text-sm hover:scale-105 transform">
                   Contact
                 </Link>
               </div>
