@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Copy, Crown, Lightbulb, Quote, Smile, Wand2, Globe, RefreshCw, Shield, Star, CheckCircle, XCircle, ExternalLink } from "lucide-react";
+import { Copy, Crown, Lightbulb, Quote, Smile, Wand2, Globe, RefreshCw, Shield, Star, CheckCircle, XCircle, ExternalLink, Heart, Zap, Users, TrendingUp } from "lucide-react";
 
 const frameworkIcons = {
   "Descriptive": Lightbulb,
@@ -519,18 +519,144 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      {/* Enhanced Footer */}
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 slide-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center">
-                <Crown className="text-white w-4 h-4" />
+          {/* Main Footer Content */}
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            {/* Brand Section */}
+            <div className="md:col-span-2 slide-in-left">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary-dark rounded-lg flex items-center justify-center float hover-glow transition-all duration-300">
+                  <Crown className="text-white w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">MillionaireDomains</h3>
+                  <p className="text-gray-400 text-sm">Premium Domain Generator</p>
+                </div>
               </div>
-              <span className="text-xl font-bold">MillionaireDomains</span>
+              <p className="text-gray-300 text-lg mb-6 max-w-md">
+                Discover powerful domain names using proven naming frameworks from successful entrepreneurs. 
+                Turn your ideas into million-dollar brands.
+              </p>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                  <Shield className="w-4 h-4 text-green-400 pulse-gentle" />
+                  <span>Powered by Gemini AI</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-gray-400">
+                  <Heart className="w-4 h-4 text-red-400 pulse-gentle" />
+                  <span>Made with passion</span>
+                </div>
+              </div>
             </div>
-            <div className="text-gray-400 text-sm">
-              © 2024 MillionaireDomains. Powered by Gemini AI.
+
+            {/* Quick Links */}
+            <div className="slide-in-right" style={{ animationDelay: '0.2s' }}>
+              <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#features" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <Link href="/about" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                    How It Works
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-gray-300 hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                    Domain Tips
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Stats Section */}
+            <div className="slide-in-right" style={{ animationDelay: '0.4s' }}>
+              <h4 className="text-lg font-semibold mb-4 text-white">Success Metrics</h4>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">10,000+</p>
+                    <p className="text-gray-400 text-sm">Domains Generated</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                    <Users className="w-4 h-4 text-green-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">2,500+</p>
+                    <p className="text-gray-400 text-sm">Happy Entrepreneurs</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">98%</p>
+                    <p className="text-gray-400 text-sm">Satisfaction Rate</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Framework Highlight */}
+          <div className="border-t border-gray-700 pt-8 mb-8 scale-in" style={{ animationDelay: '0.6s' }}>
+            <div className="text-center">
+              <h4 className="text-lg font-semibold mb-4 text-white">Built on Greg Isenberg's Proven Framework</h4>
+              <div className="flex justify-center items-center space-x-8 flex-wrap gap-4">
+                <div className="flex items-center space-x-2 text-gray-300">
+                  <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                    <Lightbulb className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <span className="text-sm">Descriptive</span>
+                </div>
+                <div className="flex items-center space-x-2 text-gray-300">
+                  <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                    <Quote className="w-4 h-4 text-purple-400" />
+                  </div>
+                  <span className="text-sm">Phrase-Based</span>
+                </div>
+                <div className="flex items-center space-x-2 text-gray-300">
+                  <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                    <Smile className="w-4 h-4 text-green-400" />
+                  </div>
+                  <span className="text-sm">Humorous</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="border-t border-gray-700 pt-8 fade-in" style={{ animationDelay: '0.8s' }}>
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="text-gray-400 text-sm mb-4 md:mb-0">
+                © 2025 MillionaireDomains. All rights reserved. Transforming ideas into million-dollar brands.
+              </div>
+              <div className="flex items-center space-x-6">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                  Privacy Policy
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                  Terms of Service
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:scale-105 transform">
+                  Contact
+                </a>
+              </div>
             </div>
           </div>
         </div>
