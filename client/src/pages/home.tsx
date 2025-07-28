@@ -392,12 +392,12 @@ export default function Home() {
                   return (
                     <Card 
                       key={index} 
-                      className="hover:shadow-xl transition-all duration-500 hover-lift hover-scale scale-in hover-glow"
+                      className="glass-card neon-border hover:shadow-xl transition-all duration-500 hover-lift hover-scale scale-in hover-glow"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
-                          <Badge variant="secondary" className={`${colorClass} border`}>
+                          <Badge variant="secondary" className={`${colorClass} border glass-card neon-border`}>
                             <IconComponent className="w-3 h-3 mr-1" />
                             {domain.style}
                           </Badge>
@@ -405,35 +405,35 @@ export default function Home() {
                             variant="ghost"
                             size="sm"
                             onClick={() => copyToClipboard(domain.name)}
-                            className="text-gray-400 hover:text-primary transition-all duration-300 hover:scale-110 hover:rotate-12"
+                            className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 hover:rotate-12"
                           >
                             <Copy className="w-4 h-4" />
                           </Button>
                         </div>
                         
                         <div className="mb-4">
-                          <h4 className="text-2xl font-bold text-gray-900 mb-2">{domain.name}</h4>
-                          <div className="inline-flex items-center px-3 py-1 bg-gray-100 rounded-lg">
-                            <Globe className="w-4 h-4 mr-2 text-gray-500" />
-                            <span className="text-sm font-medium text-gray-700">{domain.domain}</span>
+                          <h4 className="text-2xl font-bold hologram mb-2">{domain.name}</h4>
+                          <div className="inline-flex items-center px-3 py-1 glass-card rounded-lg neon-border">
+                            <Globe className="w-4 h-4 mr-2 text-primary" />
+                            <span className="text-sm font-medium text-foreground">{domain.domain}</span>
                           </div>
                         </div>
                         
-                        <p className="text-gray-600 leading-relaxed mb-4">{domain.rationale}</p>
+                        <p className="text-muted-foreground/80 leading-relaxed mb-4">{domain.rationale}</p>
                         
                         <Separator className="mb-4" />
                         
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2">
-                            <span className="text-sm text-gray-500">Domain Suggestion</span>
+                            <span className="text-sm text-muted-foreground/60 hologram">Neural Suggestion</span>
                             {domain.isAvailable === true && (
-                              <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                              <Badge variant="secondary" className="glass-card border-green-400 text-green-400 neon-border">
                                 <CheckCircle className="w-3 h-3 mr-1" />
                                 Available
                               </Badge>
                             )}
                             {domain.isAvailable === false && (
-                              <Badge variant="secondary" className="bg-red-100 text-red-800 border-red-200">
+                              <Badge variant="secondary" className="glass-card border-red-400 text-red-400 neon-border">
                                 <XCircle className="w-3 h-3 mr-1" />
                                 Taken
                               </Badge>
@@ -444,7 +444,7 @@ export default function Home() {
                               variant="ghost"
                               size="sm"
                               onClick={() => copyToClipboard(domain.domain)}
-                              className="text-primary hover:text-primary-dark transition-all duration-300 hover:scale-105 hover-lift"
+                              className="text-primary hover:text-primary/80 transition-all duration-300 hover:scale-105 hover-lift"
                             >
                               Copy Domain
                             </Button>
@@ -453,12 +453,12 @@ export default function Home() {
                               size="sm"
                               onClick={() => checkDomainAvailability(domain.domain, index)}
                               disabled={checkingDomains.has(domain.domain)}
-                              className="text-gray-500 hover:text-gray-700 transition-all duration-300 hover:scale-105 hover-lift"
+                              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 hover-lift"
                             >
                               {checkingDomains.has(domain.domain) ? (
                                 <>
                                   <RefreshCw className="w-4 h-4 mr-1 animate-spin" />
-                                  Checking...
+                                  Scanning...
                                 </>
                               ) : (
                                 <>
@@ -470,19 +470,19 @@ export default function Home() {
                           </div>
                         </div>
                         
-                        {/* Alternatives Section */}
+                        {/* Alternative Neural Suggestions */}
                         {domain.isAvailable === false && domain.alternatives && domain.alternatives.length > 0 && (
-                          <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                            <h5 className="text-sm font-semibold text-yellow-800 mb-2">Alternative Domains Available:</h5>
+                          <div className="mt-4 p-4 glass-card border border-orange-400/30 rounded-lg">
+                            <h5 className="text-sm font-semibold text-orange-400 mb-2 hologram">Alternative Neural Domains:</h5>
                             <div className="grid grid-cols-2 gap-2">
                               {domain.alternatives.map((alternative, altIndex) => (
-                                <div key={altIndex} className="flex items-center justify-between p-2 bg-white rounded border">
-                                  <span className="text-sm text-gray-700">{alternative}</span>
+                                <div key={altIndex} className="flex items-center justify-between p-2 glass-card rounded neon-border">
+                                  <span className="text-sm text-foreground">{alternative}</span>
                                   <Button
                                     variant="ghost"
                                     size="sm"
                                     onClick={() => copyToClipboard(alternative)}
-                                    className="text-xs text-primary hover:text-primary-dark"
+                                    className="text-xs text-primary hover:text-primary/80"
                                   >
                                     <Copy className="w-3 h-3" />
                                   </Button>
