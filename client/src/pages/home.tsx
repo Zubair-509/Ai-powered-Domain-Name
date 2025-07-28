@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link } from "wouter";
 import { domainGenerationRequestSchema, type DomainSuggestion } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
@@ -164,9 +165,8 @@ export default function Home() {
               </div>
             </div>
             <nav className="hidden sm:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-primary transition-colors">Features</a>
-              <a href="#" className="text-gray-700 hover:text-primary transition-colors">Pricing</a>
-              <a href="#" className="text-gray-700 hover:text-primary transition-colors">About</a>
+              <a href="#features" className="text-gray-700 hover:text-primary transition-colors">Features</a>
+              <Link href="/about" className="text-gray-700 hover:text-primary transition-colors">About</Link>
             </nav>
           </div>
         </div>
@@ -469,7 +469,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section id="features" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Why Choose MillionaireDomains?</h3>
