@@ -150,7 +150,7 @@ export default function Contact() {
                   <div>
                     <h4 className="font-semibold hologram mb-2">Physical Location Matrix</h4>
                     <p className="text-muted-foreground/80 leading-relaxed">
-                      Karachi Technology Hub<br />
+                      Karachi<br />
                       Sindh Province<br />
                       Islamic Republic of Pakistan
                     </p>
