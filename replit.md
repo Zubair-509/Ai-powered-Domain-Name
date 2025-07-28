@@ -131,6 +131,17 @@ The codebase is organized as a monorepo with clear separation of concerns:
 
 ## Recent Changes (January 2025)
 
+### Railway Deployment Fixes (January 29, 2025)
+- ✅ Fixed ERR_INVALID_ARG_TYPE error by updating server.listen() syntax
+- ✅ Simplified server.listen() call for Railway compatibility
+- ✅ Added .nvmrc file to specify Node.js 20 for Railway
+- ✅ Created nixpacks.toml for Railway build configuration
+- ✅ Updated railway.json with simplified build process
+- ✅ Added Procfile for Railway deployment
+- ✅ Confirmed production build works correctly
+
+## Recent Changes (January 2025)
+
 ### UI/UX Complete Transformation
 - ✅ Implemented futuristic, minimalist design with dark theme throughout all pages
 - ✅ Added glass morphism effects, neon borders, and neural-themed language
