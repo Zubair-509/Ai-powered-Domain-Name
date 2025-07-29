@@ -1,6 +1,7 @@
 import { Link } from "wouter";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Crown, ArrowLeft, Target, Lightbulb, Users, Zap, Star, Brain, Rocket, Quote, Smile } from "lucide-react";
 
 export default function About() {
@@ -25,7 +26,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-            
+
             {/* Enhanced Navigation Pills */}
             <nav className="hidden sm:flex items-center space-x-1 lg:space-x-2">
               <div className="flex items-center space-x-1 lg:space-x-2 glass-card rounded-full px-2 py-1 neon-border-subtle bg-gradient-to-r from-primary/5 to-primary-dark/5 backdrop-blur-sm">
@@ -67,7 +68,7 @@ export default function About() {
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center px-6 py-3 glass-card rounded-full font-medium text-sm mb-8 pulse-gentle hover-lift transition-all duration-300 neon-border">

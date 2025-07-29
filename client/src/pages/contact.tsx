@@ -1,4 +1,8 @@
 import { Link } from "wouter";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,6 +12,15 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = "Contact MillionaireDomains - Get in Touch | Domain Generator Support";
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Contact MillionaireDomains for support, partnerships, or questions about our AI-powered domain name generator. Based in Karachi, Pakistan.');
+    }
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,7 +33,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast({
@@ -58,7 +71,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            
+
             {/* Enhanced Navigation Pills */}
             <nav className="hidden sm:flex items-center space-x-1 lg:space-x-2">
               <div className="flex items-center space-x-1 lg:space-x-2 glass-card rounded-full px-2 py-1 neon-border-subtle bg-gradient-to-r from-primary/5 to-primary-dark/5 backdrop-blur-sm">
@@ -100,7 +113,7 @@ export default function Contact() {
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full filter blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center px-6 py-3 glass-card rounded-full font-medium text-sm mb-8 pulse-gentle hover-lift transition-all duration-300 neon-border">
@@ -122,7 +135,7 @@ export default function Contact() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-12">
-            
+
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-8">
               <Card className="glass-card neon-border hover-lift transition-all duration-500 p-8">
@@ -241,7 +254,7 @@ export default function Contact() {
                         />
                       </div>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium hologram mb-2">
                         Transmission Subject Matrix
@@ -257,7 +270,7 @@ export default function Contact() {
                         placeholder="Neural inquiry classification"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium hologram mb-2">
                         Consciousness Message Payload
@@ -273,7 +286,7 @@ export default function Contact() {
                         placeholder="Encode your neural transmission here... Describe your inquiry, feedback, or technical issues in detail."
                       />
                     </div>
-                    
+
                     <div className="text-center">
                       <Button
                         type="submit"
@@ -314,7 +327,7 @@ export default function Contact() {
                     </div>
                   </div>
                 </Card>
-                
+
                 <Card className="glass-card neon-border hover-lift transition-all duration-500 p-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 glass-card rounded-lg flex items-center justify-center neon-border pulse-gentle">

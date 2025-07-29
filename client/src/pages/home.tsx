@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import * as React from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,6 +32,16 @@ export default function Home() {
   const [domains, setDomains] = useState<DomainSuggestion[]>([]);
   const [isDemoMode, setIsDemoMode] = useState(false);
   const [checkingDomains, setCheckingDomains] = useState<Set<string>>(new Set());
+
+  // Set page-specific meta tags
+  React.useEffect(() => {
+    document.title = "MillionaireDomains - AI-Powered Domain Name Generator | Premium Brand Names";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Generate premium domain names using proven millionaire frameworks. AI-powered domain suggestions for entrepreneurs, startups, and businesses. Create your million-dollar brand today.');
+    }
+  }, []);
 
   const { toast } = useToast();
 
@@ -203,7 +214,8 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative cyber-grid py-12 sm:py-20 lg:py-32 overflow-hidden">
+      <main>
+        <section className="relative cyber-grid py-12 sm:py-20 lg:py-32 overflow-hidden" aria-label="Hero section">
         {/* Neural Network Background */}
         <div className="absolute inset-0 neural-network">
           <div className="absolute top-0 left-0 w-full h-full plasma-bg"></div>
@@ -233,7 +245,7 @@ export default function Home() {
       </section>
 
       {/* Main Generator Section */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" aria-label="Domain generator tool">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Generator Form */}
           <Card className="mb-12 overflow-hidden hover-lift transition-all duration-500 scale-in glass-card neon-border">
@@ -522,7 +534,7 @@ export default function Home() {
       </section>
 
       {/* Neural Framework Matrix */}
-      <section id="features" className="py-12 sm:py-20 relative cyber-grid">
+      <section id="features" className="py-12 sm:py-20 relative cyber-grid" aria-label="Features and frameworks">
         <div className="absolute inset-0 neural-network opacity-30"></div>
         <div className="relative z-10 max-w-7xl mx-auto container-responsive">
           <div className="text-center mb-12 sm:mb-16 slide-up">
@@ -560,8 +572,10 @@ export default function Home() {
         </div>
       </section>
 
+      </main>
+
       {/* Enhanced Footer */}
-      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 sm:py-16 slide-up">
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 sm:py-16 slide-up" role="contentinfo">
         <div className="max-w-7xl mx-auto container-responsive">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
