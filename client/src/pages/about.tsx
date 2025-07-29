@@ -5,6 +5,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Crown, ArrowLeft, Target, Lightbulb, Users, Zap, Star, Brain, Rocket, Quote, Smile } from "lucide-react";
 
 export default function About() {
+  // Set page-specific meta tags for About page
+  useEffect(() => {
+    document.title = "About MillionaireDomains - AI Domain Name Generator | Our Story & Mission";
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Learn about MillionaireDomains, the free AI-powered domain name generator trusted by 10,000+ entrepreneurs. Discover our mission to help startups find premium brand names using proven millionaire frameworks.');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background fade-in">
       {/* Enhanced Futuristic Header */}

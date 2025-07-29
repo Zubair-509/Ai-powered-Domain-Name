@@ -35,12 +35,35 @@ export default function Home() {
 
   // Set page-specific meta tags
   React.useEffect(() => {
-    document.title = "MillionaireDomains - AI-Powered Domain Name Generator | Premium Brand Names";
+    document.title = "Free AI Domain Name Generator | MillionaireDomains - Create Premium Brand Names in 2025";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Generate premium domain names using proven millionaire frameworks. AI-powered domain suggestions for entrepreneurs, startups, and businesses. Create your million-dollar brand today.');
+      metaDescription.setAttribute('content', 'Generate unlimited premium domain names FREE using AI and proven millionaire naming frameworks. 10,000+ entrepreneurs trust our domain generator for startups, businesses & brands. Try now!');
     }
+    
+    // Add structured data for the homepage
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Free AI Domain Name Generator",
+      "description": "Generate unlimited premium domain names using AI and proven millionaire frameworks",
+      "url": "https://millionairedomains.com",
+      "mainEntity": {
+        "@type": "SoftwareApplication",
+        "name": "MillionaireDomains AI Generator",
+        "applicationCategory": "BusinessApplication"
+      }
+    };
+    
+    let script = document.querySelector('#homepage-schema');
+    if (!script) {
+      script = document.createElement('script');
+      script.id = 'homepage-schema';
+      script.type = 'application/ld+json';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(structuredData);
   }, []);
 
   const { toast } = useToast();
@@ -230,15 +253,15 @@ export default function Home() {
               <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-2 bounce-gentle text-primary" />
               <span className="hologram">Neural Framework Architecture</span>
             </div>
-            <h2 className="hero-heading font-bold mb-6 sm:mb-8 slide-up">
-              <span className="hologram block">Domain Genesis</span>
+            <h1 className="hero-heading font-bold mb-6 sm:mb-8 slide-up">
+              <span className="hologram block">Free AI Domain Name Generator</span>
               <span className="text-lg sm:text-2xl md:text-3xl font-normal text-muted-foreground block mt-2">
-                AI-Powered Brand Evolution
+                Create Premium Brand Names for Your Business
               </span>
-            </h2>
+            </h1>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/80 mb-8 sm:mb-12 max-w-4xl mx-auto slide-up leading-relaxed px-4" style={{ animationDelay: '0.2s' }}>
-              Harness quantum-level naming algorithms powered by proven millionaire frameworks.
-              <span className="hidden sm:inline"> Transform concepts into digital empires through neural domain synthesis.</span>
+              Generate unlimited premium domain names FREE using AI and proven millionaire naming frameworks. 
+              <span className="hidden sm:inline"> Perfect for entrepreneurs, startups, and businesses looking to create memorable brand names that convert customers.</span>
             </p>
           </div>
         </div>
@@ -252,9 +275,9 @@ export default function Home() {
             <CardHeader className="relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20"></div>
               <div className="relative z-10">
-                <CardTitle className="text-3xl font-bold slide-in-left hologram">Domain generator</CardTitle>
+                <CardTitle className="text-3xl font-bold slide-in-left hologram" id="domain-generator">Domain generator</CardTitle>
                 <CardDescription className="text-muted-foreground mt-2 slide-in-right" style={{ animationDelay: '0.2s' }}>
-                  Initialize your brand concept for quantum domain synthesis
+                  Describe your business idea and get premium domain name suggestions instantly
                 </CardDescription>
               </div>
             </CardHeader>
@@ -538,9 +561,9 @@ export default function Home() {
         <div className="absolute inset-0 neural-network opacity-30"></div>
         <div className="relative z-10 max-w-7xl mx-auto container-responsive">
           <div className="text-center mb-12 sm:mb-16 slide-up">
-            <h3 className="heading-responsive font-bold hologram mb-4 sm:mb-6">Neural Architecture Protocols</h3>
+            <h2 className="heading-responsive font-bold hologram mb-4 sm:mb-6">Why Choose Our AI Domain Name Generator?</h2>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/80 max-w-3xl mx-auto px-4" style={{ animationDelay: '0.2s' }}>
-              Advanced millionaire framework matrices implemented through quantum-level brand synthesis algorithms
+              Our free domain name generator uses proven millionaire naming frameworks to create premium brand names for startups, businesses, and entrepreneurs worldwide.
             </p>
           </div>
           
@@ -549,24 +572,156 @@ export default function Home() {
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 glass-card rounded-xl mb-4 sm:mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
                 <Lightbulb className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
               </div>
-              <h4 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Direct-Access Protocol</h4>
-              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Ultra-clear neural pathways that instantly transmit value matrices to target consciousness nodes</p>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Descriptive Business Names</h3>
+              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Clear, professional domain names that instantly communicate your business value proposition to customers and search engines</p>
             </div>
             
             <div className="text-center hover-lift transition-all duration-500 scale-in glass-card card-responsive rounded-xl neon-border" style={{ animationDelay: '0.3s' }}>
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 glass-card rounded-xl mb-4 sm:mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
                 <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400" />
               </div>
-              <h4 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Cultural-Sync Framework</h4>
-              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Quantum-entangled cultural resonance patterns that trigger viral amplification cascades</p>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Trending Phrase Names</h3>
+              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Modern, cultural phrase-based domain names that resonate with your target audience and boost brand memorability</p>
             </div>
             
             <div className="text-center hover-lift transition-all duration-500 scale-in glass-card card-responsive rounded-xl neon-border" style={{ animationDelay: '0.5s' }}>
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 glass-card rounded-xl mb-4 sm:mb-6 hover:scale-110 transition-all duration-300 pulse-gentle neon-border">
                 <Smile className="w-8 h-8 sm:w-10 sm:h-10 text-green-400" />
               </div>
-              <h4 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Humor-Viral Architecture</h4>
-              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Meme-optimized neural networks engineered for maximum shareability and viral penetration</p>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Creative & Memorable Names</h3>
+              <p className="text-muted-foreground/80 leading-relaxed text-sm sm:text-base">Unique, catchy domain names designed for maximum shareability and brand recall in the digital marketplace</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section for SEO */}
+      <section className="py-12 sm:py-20 relative" aria-label="Frequently Asked Questions">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 slide-up">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold hologram mb-4 sm:mb-6">Frequently Asked Questions</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/80 max-w-3xl mx-auto">
+              Everything you need to know about our free AI domain name generator
+            </p>
+          </div>
+          
+          <div className="space-y-6 sm:space-y-8">
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300" itemScope itemType="https://schema.org/Question">
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-4" itemProp="name">How does the AI domain name generator work?</h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p className="text-muted-foreground/90 leading-relaxed text-base sm:text-lg" itemProp="text">
+                  Our AI uses proven millionaire naming frameworks to generate premium domain names. Simply describe your business or idea, 
+                  and our AI will create multiple domain suggestions using descriptive, phrase-based, and creative naming strategies. 
+                  The AI analyzes successful business names and applies these patterns to your specific concept.
+                </p>
+              </div>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300" itemScope itemType="https://schema.org/Question">
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-4" itemProp="name">Is the domain name generator completely free?</h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p className="text-muted-foreground/90 leading-relaxed text-base sm:text-lg" itemProp="text">
+                  Yes! MillionaireDomains is completely free to use. You can generate unlimited domain name suggestions without any cost, 
+                  registration, or subscription required. Our mission is to help entrepreneurs and businesses find the perfect domain name 
+                  to launch their digital presence.
+                </p>
+              </div>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300" itemScope itemType="https://schema.org/Question">
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-4" itemProp="name">What makes these domain names premium quality?</h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p className="text-muted-foreground/90 leading-relaxed text-base sm:text-lg" itemProp="text">
+                  Our AI uses naming frameworks proven by successful entrepreneurs and millionaire businesses. These include clear 
+                  descriptive names that communicate value, trending phrase-based names that resonate culturally, and memorable 
+                  creative names designed for brand recall and shareability. Each suggestion is optimized for business success.
+                </p>
+              </div>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300" itemScope itemType="https://schema.org/Question">
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-4" itemProp="name">Can I check domain availability through your tool?</h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p className="text-muted-foreground/90 leading-relaxed text-base sm:text-lg" itemProp="text">
+                  Yes! Our domain generator includes real-time domain availability checking. Simply click the check button next to any 
+                  generated domain name to see if it's available for registration. If a domain is taken, we'll also suggest similar 
+                  available alternatives to help you find the perfect name for your business.
+                </p>
+              </div>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300" itemScope itemType="https://schema.org/Question">
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-4" itemProp="name">What types of businesses can use this domain generator?</h3>
+              <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
+                <p className="text-muted-foreground/90 leading-relaxed text-base sm:text-lg" itemProp="text">
+                  Our AI domain name generator works for any type of business - from tech startups and e-commerce stores to consulting 
+                  firms and creative agencies. Whether you're launching a SaaS product, opening a restaurant, starting a blog, or 
+                  building any kind of business, our AI can generate relevant, professional domain names tailored to your industry.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section for SEO */}
+      <section className="py-12 sm:py-20 relative cyber-grid" aria-label="Benefits">
+        <div className="absolute inset-0 neural-network opacity-20"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 slide-up">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold hologram mb-4 sm:mb-6">Why Entrepreneurs Choose MillionaireDomains</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/80 max-w-3xl mx-auto">
+              Join thousands of successful entrepreneurs who trust our AI-powered domain name generator
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-blue-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Instant Results</h3>
+              <p className="text-muted-foreground/80 leading-relaxed">Get dozens of premium domain suggestions in seconds, not hours of brainstorming</p>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-green-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Proven Frameworks</h3>
+              <p className="text-muted-foreground/80 leading-relaxed">Based on naming strategies used by successful million-dollar businesses</p>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-purple-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-purple-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Domain Availability</h3>
+              <p className="text-muted-foreground/80 leading-relaxed">Real-time checking to find available domains for immediate registration</p>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-orange-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10 text-orange-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">SEO Optimized</h3>
+              <p className="text-muted-foreground/80 leading-relaxed">Domain suggestions optimized for search engine visibility and ranking</p>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-pink-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <Heart className="w-8 h-8 sm:w-10 sm:h-10 text-pink-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Brand Memorable</h3>
+              <p className="text-muted-foreground/80 leading-relaxed">Names designed for maximum brand recall and customer engagement</p>
+            </div>
+            
+            <div className="glass-card neon-border rounded-xl p-6 sm:p-8 hover-lift transition-all duration-300 text-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-cyan-500/20 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <Users className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-400" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold hologram mb-3 sm:mb-4">Entrepreneur Trusted</h3>
+              <p className="text-muted-foreground/80 leading-relaxed">Used by over 10,000+ entrepreneurs and business owners worldwide</p>
             </div>
           </div>
         </div>

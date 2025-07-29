@@ -1,7 +1,24 @@
-
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /admin/
 
+# Allow all crawlers access to the main pages
+Allow: /about
+Allow: /contact  
+Allow: /privacy
+Allow: /terms
+
+# Sitemap location
 Sitemap: https://millionairedomains.com/sitemap.xml
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Additional directives for better SEO
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
