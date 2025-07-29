@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Crown, ArrowLeft, Target, Lightbulb, Users, Zap, Star, Brain, Rocket, Quote, Smile } from "lucide-react";
 
 export default function About() {
