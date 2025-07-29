@@ -252,7 +252,7 @@ export default function Home() {
             <CardHeader className="relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20"></div>
               <div className="relative z-10">
-                <CardTitle className="text-3xl font-bold slide-in-left hologram">Neural Generator</CardTitle>
+                <CardTitle className="text-3xl font-bold slide-in-left hologram">Domain generator</CardTitle>
                 <CardDescription className="text-muted-foreground mt-2 slide-in-right" style={{ animationDelay: '0.2s' }}>
                   Initialize your brand concept for quantum domain synthesis
                 </CardDescription>
